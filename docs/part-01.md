@@ -87,6 +87,12 @@ Hmmmmmmm.... which disks are busy?
 
 ![DEV SDA IS MADE OF PEOPLE](/images/osdiskuhoh.png "sda is the OS disk, the OS disk... is busy...")
 
+**note**: Looks like the disks spike in usage during cluster creation,
+          provisioning etc as one would expect. Disk busy across the cluster is
+          averaging 0.17% - looking at the nodes each operating system disk is
+          averaging 3.8%/4% up to 4.9% with node 0003 being highest with 4.94%
+          average.
+
 ### How does Azure Insights run, previous?
 
 Additional details on the daemonset, configuration, limits
@@ -106,7 +112,7 @@ Key metrics I've plotted:
 - Kubelet Operation error count (o_O)
 - cpuUsagePercentage
 - memoryRssPercentage (if Rss is an acronym (RSS), why isn't it capitalized?)
--
+- memoryWorkingSetPercentage
 
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller
