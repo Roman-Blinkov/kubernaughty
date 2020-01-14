@@ -4,10 +4,8 @@ Contents:
 
 * [Introduction](#intro)
 * [Technical Introduction](#techintro)
-* tbd // todo lol
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
- <a name="quotafail"></a>
-# Quotas leading to failure
+* [Quotas leading to failure](#quotafail)
 
 
 <a name="intro"></a>
