@@ -236,13 +236,13 @@ nature if this issue, burst limits will also be exceeded.
 The disk devices / drives map to specific disk classes or tiers in Azure and
 other IaaS providers. On Azure, the default is Premium SSD storage so we can
 look at the size (128 GiB) and map that to the
-**P10** disk tier with a Max IOPS of **500** and a Max Throuput of 200 MiB/sec.
+**P10** disk tier with a Max IOPS of **500** and a Max Throuput of 100 MiB/sec.
 
 ![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
 
 **This means, using our example DS3_v2 SKU (VM Max IOPS 12800) has an OS disk
-Max IOPS of 500 (P10 Class Max IOPS 500)**. You can not exceed these values
-without VM / Storage level hosts pushing back at the VM layer.
+Max IOPS of 500 (P10 Class Max IOPS 500) not 12800**. You can not exceed these
+values without VM / Storage level hosts pushing back at the VM layer.
 
 Here is the issue visualized:
 
