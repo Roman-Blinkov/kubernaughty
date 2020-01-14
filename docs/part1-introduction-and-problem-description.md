@@ -93,12 +93,18 @@ local storage for a given Virtual Machine by default for many VM classes.
 Physical storage devices have limitations in terms of bandwidth and total
 number of file operations (IOPS) but this is usually constrained by the
 physical device itself. Cloud provisioned block and file storage devices also
-have limitations due to architecture or service limits (quotas).
+have limitations due to architecture, service **and**  device-specific limits
+(quotas).
 
-These service limits/quotas enforced by the storage service are layered - VMs
-have specific quotas, network cards, disks, etc. When these limits are exceeded
-the service itself (storage, compute, etc) pushes back (throttles) the
-offending entity.
+For example, your Azure subscription may only allow you to have a single Azure
+Blob storage device, your limit is 1 across that subscription - but that blob
+storage device, network card, or VM **also** has quotas/limits specific to
+maintain the QoS for that device.
+
+These service limits/quotas enforced by the services (storage in this case)
+are layered - Service Quotas -> Regional Quotas -> Subscription Quotas ->
+Device Quotas. When the lesser of any value in this stack is exceeded, all
+layers above that will become throttled.
 
 Examining the user reported failures and commonality, we identified that user
 workloads were exceeding quotas set by Azure Storage to the operating system
