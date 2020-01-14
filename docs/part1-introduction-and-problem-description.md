@@ -232,7 +232,7 @@ other IaaS providers. On Azure, the default is Premium SSD storage so we can
 look at the size (128 GiB) and map that to the
 **P10** disk tier with a Max IOPS of **500** and a Max Throuput of 200 MiB/sec.
 
-![Disk Sizes Trimmed]("/images/Disk Sizes Trimmed.png" "p10 disk tier")
+![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
 
 **This means, using our example DS3_v2 SKU (VM Max IOPS 12800) has an OS disk
 Max IOPS of 500 (P10 Class Max IOPS 500)**. You can not exceed these values
