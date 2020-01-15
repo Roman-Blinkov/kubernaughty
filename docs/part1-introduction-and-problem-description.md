@@ -1,5 +1,9 @@
 # Diagnosing and chasing Kubernetes Kubernaughties
 
+- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
+- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
+- [Part 3: Whats in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+
 Contents:
 
 * [Introduction](#intro)
@@ -7,6 +11,7 @@ Contents:
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
 * [Quotas leading to failure](#quotafail)
 
+>**This is an ongoing project / labor of love. It is not complete by any means**
 
 <a name="intro"></a>
 ## Introduction
@@ -275,12 +280,23 @@ Right off the bat - you can see that **every** disk tier has an IOPS cap. Simply
 boosting this to a large disk means that you're only delaying the inevitable
 (because the problem is not fixed, and IOPS will eventually be exhausted).
 
-Linux also has a 2 TiB disk partition limit. You can add and have larger
-partitions, but most system daemons and applications will not be able to
-actually use the additional space. That means you have a hard IOPS cap
-(per the chart) of 7500 IOPS (due to the 2 TiB partition limit).
+> Updated to clarify - see https://github.com/jnoller/kubernaughty/issues/1
 
-7500 sounds like a lot, but its not unless **you know exactly** how much the OS
+Linux (and Windows) also has a 2 TiB disk partition limit on various IaaS
+providers due to **legacy MBR usage/VM images**, olders hypervisors, etc. If the
+host, the VM image, kernel, etc all support GPT (below) you can havbe >2tb OS
+disks (which will still have hard quotas).
+
+> My personal experience does not cover GPT which overcomes the 2tb limitation
+of MBR style partitions, I'm old-cloud. If I expand this beyond my current
+Azure/AKS/K8S box I'll dig more. [Here's a read on GPT vs MBR](https://askubuntu.com/questions/629470/gpt-vs-mbr-why-not-mbr)
+
+Links for GPT/MBR/OS Disk limits:
+
+* [Azure VM FAQ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq-for-disks)
+* [AWS Requirements for Linux volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-volume-requirements.html#linux-volumes)
+
+7500 IOPS sounds like a lot, but its not unless **you know exactly** how much the OS
 and the entire stack above will consume under a failover event under **peak**
 load (applying peak application load and then forcing 1-2 node failures should
 help identify the high water mark - but also test a cold-boot-to-hot-load,
