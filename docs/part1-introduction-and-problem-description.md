@@ -309,6 +309,7 @@ considerations later.
 
 [Continue on to Part 2: Cluster setup and basic monitoring](https://raw.githubusercontent.com/jnoller/kubernaughty/master/docs/part2-basic-setup.md)
 
-[aks]: https://docs.microsoft.com/en-us/azure/aks/
+
+[aks]: https://docs.microsoft.com/azure/aks/
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373

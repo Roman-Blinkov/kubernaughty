@@ -220,10 +220,20 @@ Another key insights report is the `Kubelet` report - this will tell you the
 latency and other key metrics around direct container operations such as sync,
 start, etc.
 
-**This is the first thing you should check when encountering any
-workload latency**:
+![Its a drop-down](/images/insights-kubelet "UX++!")
 
-tbd
+**This is (in theory) the first thing you should check when encountering any
+workload latency** - container operations are the first thing to show host
+level performance degradation (usually):
+
+![Kubelet Operations](/images/insights-kubelet-ohpoop.png "uhhhhhh")
+
+Except, this workbook / report / view only shows success and failure rates -
+not latency, not specific / full operations, etc.
+
+So we're still not getting good signal. And the cluster is idle.
+
+Time to void the warranty.
 
 ## Takeaways
 
