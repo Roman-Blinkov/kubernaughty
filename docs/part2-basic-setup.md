@@ -134,7 +134,7 @@ The metrics on the chart include some 'surprise' contenders (yes, I'm cheating)
 - in this case we want to use the OS disk metrics labeled "Preview" and ignore
 the rest for now:
 
-![OS disk metrics](/images/oms-dbusy-zoom.pngvmss-osdisk-metrics.png "Preview is the new GA")
+![OS disk metrics](/images/vmss-osdisk-metrics.png "Preview is the new GA")
 
 And here are the key things I want to see in theory:
 
@@ -219,7 +219,7 @@ Another key insights report is the `Kubelet` report - this will tell you the
 latency and other key metrics around direct container operations such as sync,
 start, etc.
 
-![Its a drop-down](/images/insights-kubelet "UX++!")
+![Its a drop-down](/images/insights-kubelet.png "UX++!")
 
 **This is (in theory) the first thing you should check when encountering any
 workload latency** - container operations are the first thing to show host
