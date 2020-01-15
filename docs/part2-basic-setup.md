@@ -1,7 +1,10 @@
 
 # Cluster Setup & Basic Monitoring
 
-[See part 1 for issue summary.](/docs/part1-introduction-and-problem-description.md)
+- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
+- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
+- [Part 3: hats in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+
 Contents:
 
 * [Introduction](#intro)
