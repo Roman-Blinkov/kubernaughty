@@ -263,6 +263,50 @@ For more reading on Azure / VM and storage quotas, see "[Azure VM storage perfor
 specific storage device, VM or subscription as they protect QoS for all
 customers.
 
+# Can I just increase my disk size to work around it before you keep talking
+
+Short answer? No.
+
+Lets go back to this chart for a second:
+
+![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
+
+Right off the bat - you can see that **every** disk tier has an IOPS cap. Simply
+boosting this to a large disk means that you're only delaying the inevitable
+(because the problem is not fixed, and IOPS will eventually be exhausted).
+
+Linux also has a 2 TiB disk partition limit. You can add and have larger
+partitions, but most system daemons and applications will not be able to
+actually use the additional space. That means you have a hard IOPS cap
+(per the chart) of 7500 IOPS (due to the 2 TiB partition limit).
+
+7500 sounds like a lot, but its not unless **you know exactly** how much the OS
+and the entire stack above will consume under a failover event under **peak**
+load (applying peak application load and then forcing 1-2 node failures should
+help identify the high water mark - but also test a cold-boot-to-hot-load,
+containers cost a lot to spin up initially, causing thundering herd IO).
+
+You can increase the size of the OS using ARM on Azure, however scale/mutate in
+place is not supported for AKS worker nodes. Additionally, see above - clusters
+under load utilizing a 2 TiB OS disk will still be throttled.
+
+Additionally: You'd be paying full price for a 2 TiB OS disk - when all you need
+is the IOPS performance, not the space.
+
+Most users when they encounter these failures simply over provision. This
+includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
+changes the *time until* they hit the issue especially with StatefulSet,
+periodic/batch workloads running densely (packing all nodes densely with
+application containers, not setting resource limits) - and during that time
+you're paying for completely unutilized disk and VM resources.
+
+Your likelihood of hitting this is directly related to the load / traffic your
+application (therefore the cluster) is under. The higher the load, the higher
+the likelihood.
+
+I will go into more details and pros/cons on mitigation & cluster design
+considerations later.
+
 [Continue on to Part 2: Cluster setup and basic monitoring]()
 
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
