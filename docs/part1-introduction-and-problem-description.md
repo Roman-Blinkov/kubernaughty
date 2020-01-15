@@ -321,7 +321,7 @@ application (therefore the cluster) is under. The higher the load, the higher
 the likelihood.
 
 If you want this to really work, you need to isolate your data paths, do not
-*add* space to the OS disk/parition, rather take the docker IO, logging, etc
+*add* space to the OS disk/partition, rather take the docker IO, logging, etc
 that you have in the OS partition and put it anywhere else. The operating system
 disk should be left to the OS, and the kernel. It's not a data store.
 

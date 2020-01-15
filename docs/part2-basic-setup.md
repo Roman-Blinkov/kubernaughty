@@ -83,6 +83,9 @@ Key metrics I've plotted:
 * memoryRssPercentage (if Rss is an acronym (RSS), why isn't it capitalized?)
 * memoryWorkingSetPercentage
 
+Yes - this mixes data types (integer, counts, averages) - you could exclude IOPS
+as an integer in this chart but the ripple effect wouldn't be as clear.
+
 <a name="idleio"></a>
 ## Idle IO? The plot thickens
 
