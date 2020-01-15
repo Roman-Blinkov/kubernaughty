@@ -223,8 +223,9 @@ start, etc.
 **This is the first thing you should check when encountering any
 workload latency**:
 
+tbd
 
-## Takeaways:
+## Takeaways
 
 * **OS Disk queue depth metrics available in the metrics/monitoring portal are
   not clear indicators of system failure.**

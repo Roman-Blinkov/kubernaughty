@@ -1,0 +1,30 @@
+# Useful commands
+
+kubectl apply -f aks-ssh-jump-forever.yaml
+kubectl exec -it aks-ssh-forever -- /bin/bash
+kubectl cp ~/.ssh/msghkey $(kubectl get pod -l app=aks-ssh-forever -o jsonpath='{.items[0].metadata.name}'):/id_rsa
+
+aks-agentpool-11889530-vmss 0 "sed -i 's/--authorization-mode=Webhook/--authorization-mode=Webhook --authentication-token-webhook=true/g'"
+
+
+kubectl get events -A -w https://dev.azure.com/msazure/CloudNativeCompute/_git/sandbox?path=%2Fnpd-monitor-kubelet-io-errors.yaml&_a=content
+
+az aks get-credentials --resource-group $rg --name $CLS
+
+export RG="IOTesting"
+
+
+
+//
+
+go run cmd/clusterloader.go --kubeconfig=kubeConfig.yaml --testconfig=config.yaml
+
+curl -L https://github.com/juan-lee/knode/releases/download/v0.1.2/knode-default.yaml | kubectl apply -f -
+kubectl rollout status daemonset -n knode-system knode-daemon
+# Update knode to move /var/lib/docker to /mnt/docker
+curl -L https://github.com/juan-lee/knode/releases/download/v0.1.2/knode-tmpdir.yaml | kubectl apply -f -
+kubectl rollout status daemonset -n knode-system knode-daemon
+
+enable-webhook MC_IOTesting_cni-prom-reroot_eastus2 aks-agentpool-11889530-vmss 0 "systemctl restart kubelet"
+
+az vm run-command invoke -g "${RESOURCE_GROUP}" -n "${VM_NAME}" --subscription-id "${SUBSCRIPTION_ID}" --command-id RunShellScript --scripts "curl -s https://raw.githubusercontent.com/juan-lee/aks-node-health-monitor/master/install | bash -s"
