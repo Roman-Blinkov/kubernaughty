@@ -144,12 +144,12 @@ And here are the key things I want to see in theory:
 Ok, something is weird. We saw the data above that showed those spikes - lets
 make it an area chart and zoom in on that rough window of time.
 
-![VMSS V2](/images/vmss-v1-enh1 "Not doing it. Nope")
+![VMSS V2](/images/vmss-v1-enh1.png "Not doing it. Nope")
 
 Ok, so we see a big, obvious spike - but if you look *real* close you can see
 some blips in the OS Disk Queue length (I picked the one near Jan 12th):
 
-![VMSS V2](/images/vmss-disk-queue "Oh hey")
+![VMSS V2](/images/vmss-disk-queue.png "Oh hey")
 
 The key metric here is OS Disk Queue Depth - from the chart we can see the
 in load caused the disk queue to spike, high disk queue values will lead to
@@ -167,13 +167,75 @@ something may have happened, we can see if you compare that to the custom chart
 I built originally using the Container insights view showed a much larger impact
 which we can't see clearly here in the node pool view either.
 
-For more about Linux Disk I/O tuning - [this is a good overview][linuxio].
+> Before you take a vendor's word on how to tune and debug these systems, I
+recommend taking the time to understand more about Linux IO and Linux Performance
+tuning. These are settings and considerations that are dependent on the workload
+regardless of Kubernetes. Please see: [Linux Disk I/O tuning][linuxio] and
+[Linux Performance by Brendan Gregg](http://www.brendangregg.com/linuxperf.html)
 
 So we're not getting good signal, and something smells weird because I told you
 it smells weird.
 
 Building charts by hand on a per-node basis seems kinda not scalable and queue
 depth as we can map it isn't a good indicator of what's to come. Let's move on.
+
+## Looking at the Azure Container Insight workbooks
+
+If you go to your cluster in the Azure portal and go to 'Insights' you will
+see a large and somewhat confusing set of workbooks(?) and options to view. This
+can be overwhelming to figure out 'What matters most' - especially at scale.
+
+> It's not clear how I would adapt well known reporting/monitoring/grafana
+reports and charts - or even if I could - this means rebuilding the best
+practices you may already have in place or that come for free from the
+community. This lack of re-usability is why this failure/family of failures is
+so prevalent. Stop rolling your own stacks.
+
+For this investigation we will stick with the custom chart I made at the
+beginning and also watch the following Azure Container Insights workbooks:
+
+![Insights Main Landing](/images/insights-main.png "Cool metrics bro")
+
+Specifically the Disk IO workbook:
+
+![Ooooh, workbooks](/images/insights-diskio2.png "Thats discoverable...")
+
+The DiskIO report shown by Container Insights is based on this
+[Telegraf Disk IO plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio)
+
+The main Disk IO workbook looks like this:
+
+![DiskIO top](/images/insights-node-diskio1.png "Look at /dev/sda!")
+
+Note the /dev/sda disk metrics there, and scrolling down, this is another
+critical view:
+
+![DiskIO busy](/images/diskbusy-insights.png "mmmm flavor train!")
+
+We'll watch those.
+
+## Container operations?
+
+Another key insights report is the `Kubelet` report - this will tell you the
+latency and other key metrics around direct container operations such as sync,
+start, etc.
+
+**This is the first thing you should check when encountering any
+workload latency**:
+
+
+## Takeaways:
+
+* **OS Disk queue depth metrics available in the metrics/monitoring portal are
+  not clear indicators of system failure.**
+* The default Container Insights
+* Azure Container insights has decent pre-built workbooks and charts showing
+  common kubernets metrics, and on the nodepool and VM level.
+
+Linux performance links:
+
+* [Linux Disk I/O tuning][linuxio] and
+* [Linux Performance by Brendan Gregg](http://www.brendangregg.com/linuxperf.html)
 
 Details on how (and which metrics) to track in the mitigation & cluster design
 section.
