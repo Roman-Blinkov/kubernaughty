@@ -1,8 +1,7 @@
 
 # Cluster Setup & Basic Monitoring
 
-[See part 1 for issue summary.](https://raw.githubusercontent.com/jnoller/kubernaughty/master/docs/part1-introduction-and-problem-description.md)
-
+[See part 1 for issue summary.](/docs/part1-introduction-and-problem-description.md)
 Contents:
 
 * [Introduction](#intro)
