@@ -320,6 +320,16 @@ Your likelihood of hitting this is directly related to the load / traffic your
 application (therefore the cluster) is under. The higher the load, the higher
 the likelihood.
 
+If you want this to really work, you need to isolate your data paths, do not
+*add* space to the OS disk/parition, rather take the docker IO, logging, etc
+that you have in the OS partition and put it anywhere else. The operating system
+disk should be left to the OS, and the kernel. It's not a data store.
+
+Expanding the disk also means you'll get less consistency and ability to
+rationalize about the IO paths as you would have just about everything on the
+system dumping things into one big bucket. Thats also another massive single
+point of failure.
+
 I will go into more details and pros/cons on mitigation & cluster design
 considerations later.
 
