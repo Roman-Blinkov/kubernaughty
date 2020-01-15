@@ -64,10 +64,6 @@ Hmmmmmmm.... which disks are busy?
           averaging 3.8%/4% up to 4.9% with node 0003 being highest with 4.94%
           average.
 
-### How does Azure Insights run, precious?
-
-TBD - details on the insights daemonset and network transport for metrics
-
 ## Azure Insights: Making a custom chart
 
 Since I already know how this play ends (it's a tragedy Brent) - I'll show you
@@ -95,7 +91,7 @@ idle until now. Checking the graph I made above, expanded to the last week:
 ![Idle Disk Load](/images/1weekIdle.png "that seems high")
 
 I've circled 'blips' - or rather, cascading impact to the memory/CPU/etc that
-gave me concern. Additionally, I circled the top line of the % memory RSS used -
+gave me concern. I also circled the top line of the % memory RSS used -
 you can see that as the number of IOPS **in progress** average spikes, there is
 a corresponding spike in memory and cpu utilization that does not decrease
 (more on this later).
@@ -127,4 +123,60 @@ Yes, I'm cheating since I know how this ends - but given the above view, what
 in the portal would I set up as a brand-new-to-this user thinking about this?
 
 In this case, I want to be able to see these values with **precision**
-(stop. using. averages.)
+(stop. using. averages.) on the IaaS level. On Azure, this means shifting to the
+Virtual Machine Scale sets view for the agentpool (aks-agentpool-57418505-vmss)
+for the cluster.
+
+This metrics view is more like normal systems administration/IaaS metrics views
+tracking the host and VM instance level stats. Pretty straightforward then to
+expand on the metrics I mapped above as well as a few host-specific ones.
+
+The metrics on the chart include some 'surprise' contenders (yes, I'm cheating)
+- in this case we want to use the OS disk metrics labeled "Preview" and ignore
+the rest for now:
+
+![OS disk metrics](/images/oms-dbusy-zoom.pngvmss-osdisk-metrics.png "Preview is the new GA")
+
+And here are the key things I want to see in theory:
+
+![VMSS V1](/images/something-is-weird.png "Waiiiiiit")
+
+Ok, something is weird. We saw the data above that showed those spikes - lets
+make it an area chart and zoom in on that rough window of time.
+
+![VMSS V2](/images/vmss-v1-enh1 "Not doing it. Nope")
+
+Ok, so we see a big, obvious spike - but if you look *real* close you can see
+some blips in the OS Disk Queue length (I picked the one near Jan 12th):
+
+![VMSS V2](/images/vmss-disk-queue "Oh hey")
+
+The key metric here is OS Disk Queue Depth - from the chart we can see the
+in load caused the disk queue to spike, high disk queue values will lead to
+high latency - that makes sense.
+
+Disk queue depth is a matter of debate. Cloud vendors implement their storage
+optimizing for given constraints and workloads and optimizing the disk queue
+depth is *highly* tied to the workload running on that device, the type of the
+device, etc.
+
+For example, this is [Azure's guidance on queue depth][aqd].
+
+This means that while OS Disks Queue Depth (or length) can kinda tell you
+something may have happened, we can see if you compare that to the custom chart
+I built originally using the Container insights view showed a much larger impact
+which we can't see clearly here in the node pool view either.
+
+For more about Linux Disk I/O tuning - [this is a good overview][linuxio].
+
+So we're not getting good signal, and something smells weird because I told you
+it smells weird.
+
+Building charts by hand on a per-node basis seems kinda not scalable and queue
+depth as we can map it isn't a good indicator of what's to come. Let's move on.
+
+Details on how (and which metrics) to track in the mitigation & cluster design
+section.
+
+[linuxio]: https://cromwell-intl.com/open-source/performance-tuning/disks.html
+[aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
