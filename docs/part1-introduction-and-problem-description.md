@@ -307,7 +307,7 @@ the likelihood.
 I will go into more details and pros/cons on mitigation & cluster design
 considerations later.
 
-[Continue on to Part 2: Cluster setup and basic monitoring](https://github.com/jnoller/kubernaughty/blob/0c252bf7c7a4dbc217fc513c3ad48e93c242229e/docs/part2-basic-setup.md)
+[Continue on to Part 2: Cluster setup and basic monitoring](/docs/part2-basic-setup.md)
 
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller

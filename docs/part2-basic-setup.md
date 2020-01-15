@@ -251,8 +251,7 @@ Linux performance links:
 Details on how (and which metrics) to track in the mitigation & cluster design
 section.
 
-Continue
-[Continue on to Part 3: What's in the box?! (voiding the warranty)](https://github.com/jnoller/kubernaughty/blob/0c252bf7c7a4dbc217fc513c3ad48e93c242229e/docs/part3-whats-in-the-box.md)
+[Continue on to Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box.md)
 
 [linuxio]: https://cromwell-intl.com/open-source/performance-tuning/disks.html
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
