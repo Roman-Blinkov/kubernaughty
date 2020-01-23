@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# Wraps the kubectl ssh-jump command because damn I hate typing command line
+# options and looking up node names it's exhausting.
+#
+
+TARGETNODE=$1
+NODEUSER=${NODEUSER:-"azureuser"}
+PRIVKEY=${PRIVKEY:-"kubernaughty.key"}
+PUBKEY=${PRIVKEY:-"kubernaughty.pub"}
+
+# I'm relying on you setting up the ssh-jump plugin and cached your keys
+if [ ! -f "$HOME/.kube/kubectlssh/options" ]; then
+    echo "something is wrong with kubectl-plugin-ssh-jump setup"
+    exit 1
+fi
+
+declare -A nodemap
+
+function nodenames {
+  node_names=$(kubectl get no -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}')
+  if [ ! node_names ]; then
+    echo "something is wrong with kubectl setup - check dat."
+    exit 1
+  fi
+  count=0
+  for i in $node_names
+    do
+      nodemap["${count}"]="${i}"
+      let "count++"
+    done
+  echo "Built AKS host map:"
+  for node in "${!nodemap[@]}"; do echo "$node - ${nodemap[$node]}"; done
+}
+
+nodenames
+if [[ ! ${nodemap[$TARGETNODE]} ]]; then
+  echo "Node not in node map"
+  exit 1
+fi
+
+kubectl ssh-jump ${nodemap[$TARGETNODE]} -u ${NODEUSER} \
+  -i ${PRIVKEY} -p {PUBKEY} --cleanup-jump

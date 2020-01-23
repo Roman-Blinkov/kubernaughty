@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+#
+# Handy little function/shell script to crack open an aks cluster, find all the
+# nodes in the nodepool and execute an arbitrary command on the nodes. Useful
+# for messing with other cluster operators.
+#
+
+
+resource_group=$1
+cluster_name=$2
+shift 2
+command="$@"
+nrg=$(az aks show --resource-group ${resource_group} --name ${cluster_name} --query nodeResourceGroup -o tsv)
+scaleset=$(az vmss list --resource-group ${nrg} --query [0].name -o tsv)
+nodes=$(az vmss list-instances -n ${scaleset} --resource-group ${nrg} --query [].name -o tsv)
+node_ids=$(az vmss list-instances -n ${scaleset} --resource-group ${nrg} --query [].instanceId -o tsv)
+
+echo "Running command on cluster: ${cluster_name}"
+echo -e "\vRG: ${nrg}"
+echo -e "\vNRG: ${nrg}"
+echo -e "\vscaleset: ${scaleset}"
+echo -e "\vNodes: \n${nodes}"
+echo -e "    Command: ${command}\n"
+echo -e "----------------------------\n"
+
+for i in $node_ids
+  do
+  echo "${nrg} -n ${scaleset} --instance ${i} --command-id RunShellScript -o json --scripts ${command}"
+    az vmss run-command invoke -g "${nrg}" -n "${scaleset}" --instance "${i}" --command-id RunShellScript -o json --scripts "${command}" | jq -r '.value[].message'
+  done
