@@ -484,8 +484,6 @@ So, about a 12-13% buffer from the 13gb we've got - about 1.7gb so we're at:
 which means **[you need to adjust your pod limits][k8sl]** lower than you
 thought.
 
-<iframe src="https://giphy.com/embed/d5fOmhU24QKMZ2Wv3m" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/finger-bernie-d5fOmhU24QKMZ2Wv3m">via GIPHY</a></p>
-
 # Where the logs at?
 
 Mostly, I wanted SSH access to be able to pour through the logs on each node.
@@ -667,8 +665,6 @@ Look, since apparently this and
 understanding system behavior makes me a crazy person, look at the [fallacies
 of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 for crying out loud. I'll invert it to be the **LAWS** of distributed computing:
-
-<iframe src="https://giphy.com/embed/10MlVunnRFnQ2Y" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/10MlVunnRFnQ2Y">via GIPHY</a></p>
 
 * **The network is unrelaible**. In fact, software defined networking makes it even
   more fun because CPU and memory/IO starvation makes it unreliable. Not to
