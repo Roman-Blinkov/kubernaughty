@@ -2,7 +2,7 @@
 
 Contents:
  - [Introduction](#intro)
- - [Kubernetes isn't a PaaS...](#pass)
+ - [Kubernetes isn't a PaaS...](#paas)
 
 
 <a name="intro"></a>
@@ -719,5 +719,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NjMwNTAxOSwyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbNzcyMzkwMjIxLDIxNTIwNjc3NV19
 -->
