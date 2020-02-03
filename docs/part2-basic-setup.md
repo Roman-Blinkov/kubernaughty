@@ -122,6 +122,7 @@ could infer that something odd was occurring.
 
 Given this issue is a generalized IaaS issue - lets change tacts.
 
+<a name="nodepool"></a>
 ## Azure Monitoring of the *nodepool*
 
 Yes, I'm cheating since I know how this ends - but given the above view, what
@@ -260,5 +261,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1MDk3NjM5LDc0NDgyMjU4XX0=
+eyJoaXN0b3J5IjpbLTI5MDM3NTQwLDc0NDgyMjU4XX0=
 -->
