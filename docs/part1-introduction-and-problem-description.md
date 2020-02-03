@@ -1,8 +1,6 @@
-# Diagnosing and chasing Kubernetes Kubernaughties
+# Kubernaughty 1: IO Saturation and analysis
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+>**This is an ongoing project / labor of love. It is not complete by any means**
 
 Contents:
 
@@ -10,8 +8,6 @@ Contents:
 * [Technical Introduction](#techintro)
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
 * [Quotas leading to failure](#quotafail)
-
->**This is an ongoing project / labor of love. It is not complete by any means**
 
 <a name="intro"></a>
 ## Introduction
@@ -53,13 +49,12 @@ honest, and candid. This means that while I work for Microsoft/Azure/AKS and
 I will not disclose internal information, I do not redact or otherwise doctor
 or change things due to my employer.
 
-My goal with this is to walk through (end to end) testing and debugging
+My goal with this is to walk through (end to end) testing, debugging and analyzing
 Kubernetes installations from an operator perspective regardless of vendor -
 being able to self root-cause and understand an issue is critical even for
 users using managed or hosted solutions.
 
-As I investigate / re-create other failure modes, I will continue to expand
-`kubernaughties`.
+As I investigate / re-create other failure modes, I will continue to expand this doc set.
 
 <a name="techintro"></a>
 ## Technical introduction
@@ -241,7 +236,7 @@ nature if this issue, burst limits will also be exceeded.
 The disk devices / drives map to specific disk classes or tiers in Azure and
 other IaaS providers. On Azure, the default is Premium SSD storage so we can
 look at the size (128 GiB) and map that to the
-**P10** disk tier with a Max IOPS of **500** and a Max Throuput of 100 MiB/sec.
+**P10** disk tier with a Max IOPS of **500** and a Max throughput of 100 MiB/sec.
 
 ![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
 
@@ -268,7 +263,7 @@ For more reading on Azure / VM and storage quotas, see "[Azure VM storage perfor
 specific storage device, VM or subscription as they protect QoS for all
 customers.
 
-# Can I just increase my disk size to work around it before you keep talking
+# Can I just increase my disk size to work around it ?
 
 Short answer? No.
 
@@ -283,8 +278,8 @@ boosting this to a large disk means that you're only delaying the inevitable
 > Updated to clarify - see https://github.com/jnoller/kubernaughty/issues/1
 
 Linux (and Windows) also has a 2 TiB disk partition limit on various IaaS
-providers due to **legacy MBR usage/VM images**, olders hypervisors, etc. If the
-host, the VM image, kernel, etc all support GPT (below) you can havbe >2tb OS
+providers due to **legacy MBR usage/VM images**, older hypervisors, etc. If the
+host, the VM image, kernel, etc all support GPT (below) you can have >2tb OS
 disks (which will still have hard quotas).
 
 > My personal experience does not cover GPT which overcomes the 2tb limitation
@@ -338,3 +333,7 @@ considerations later.
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTYwMDM3MzU5MSwtODk0NTYyMTA5LC0xOT
+E2ODg1OTA3XX0=
+-->
