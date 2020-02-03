@@ -6,6 +6,7 @@ Contents:
  - [Voiding the Warranty](#void)
 	 - [Shaving yaks](#yak)
 	 - [Command execution without SSH](#lol)
+	 - [Enabling SSH](#ssh)
 
 
 <a name="intro"></a>
@@ -726,6 +727,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMTExMjYwLDY5NTIxMTQ2NiwxNjUwMz
-A5MzAzLDIxNTIwNjc3NV19
+eyJoaXN0b3J5IjpbLTUyMDUxNTQ0Nyw2OTUyMTE0NjYsMTY1MD
+MwOTMwMywyMTUyMDY3NzVdfQ==
 -->
