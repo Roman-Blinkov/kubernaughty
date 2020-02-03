@@ -245,7 +245,8 @@ So we're still not getting good signal. And the cluster is idle.
 
 Time to void the warranty.
 
-## Takeaways
+<a name="su"></a>
+## Summary
 
 * **OS Disk queue depth metrics available are not clear indicators of system failure.**
 * Azure Container insights has decent pre-built workbooks and charts showing
@@ -265,6 +266,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTM3NDExNjgsMjI2MTg0MTcxLDc0ND
-gyMjU4XX0=
+eyJoaXN0b3J5IjpbMTExNTk0NDMxLDIyNjE4NDE3MSw3NDQ4Mj
+I1OF19
 -->
