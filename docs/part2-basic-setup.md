@@ -186,7 +186,7 @@ Building charts by hand on a per-node basis seems kinda not scalable and queue
 depth as we can map it isn't a good indicator of what's to come. Let's move on.
 
 <a name="workbook"></a>
-## Looking at the Azure Container Insight workbooks
+## Looking at the Azure Container Insights workbooks
 
 If you go to your cluster in the Azure portal and go to 'Insights' you will
 see a large and somewhat confusing set of workbooks(?) and options to view. This
@@ -262,5 +262,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNzMwNTk2Nyw3NDQ4MjI1OF19
+eyJoaXN0b3J5IjpbMjI1ODY3NTA2LDc0NDgyMjU4XX0=
 -->
