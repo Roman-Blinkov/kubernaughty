@@ -5,6 +5,7 @@
 #
 
 TARGETNODE=$1
+CLEANUP=${JUMPCLEAN:-}
 NODEUSER=${NODEUSER:-"azureuser"}
 PRIVKEY=${PRIVKEY:-"kubernaughty.key"}
 PUBKEY=${PRIVKEY:-"kubernaughty.pub"}
@@ -39,5 +40,6 @@ if [[ ! ${nodemap[$TARGETNODE]} ]]; then
   exit 1
 fi
 
+
 kubectl ssh-jump ${nodemap[$TARGETNODE]} -u ${NODEUSER} \
-  -i ${PRIVKEY} -p {PUBKEY} --cleanup-jump
+    -i ${PRIVKEY} -p {PUBKEY} #--cleanup-jump

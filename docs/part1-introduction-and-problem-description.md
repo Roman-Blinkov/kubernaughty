@@ -333,7 +333,3 @@ considerations later.
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMDM3MzU5MSwtODk0NTYyMTA5LC0xOT
-E2ODg1OTA3XX0=
--->
