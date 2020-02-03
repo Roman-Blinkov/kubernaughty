@@ -162,6 +162,7 @@ a hacky `vmssrc` script you can drop on your $PATH. I'm old and I like bash.
 
 Here's an example using the vmssrc command:
 
+[
 ![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
 
 We're still going to enable ssh - but keep that ^ in the back of your mind.
@@ -188,6 +189,7 @@ info. So I automated it.
 
 In the [`tools/`][tools] directory, the script aksssh does what some of what you need:
 
+[
 ![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
 
 **I recommend generating new/clean SSH keys for stuff like this - don't
@@ -728,6 +730,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MDMzMzA0NCw2OTUyMTE0NjYsMTY1MD
-MwOTMwMywyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbLTkwMDQ4NTA0LDY5NTIxMTQ2NiwxNjUwMz
+A5MzAzLDIxNTIwNjc3NV19
 -->
