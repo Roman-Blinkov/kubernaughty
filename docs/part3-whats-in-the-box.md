@@ -72,7 +72,7 @@ up to (using my misleading chart):
 
 So. We have a cluster, and we have some nodes, and I'm a pre-cloud grumpy
 engineer so the first thing I'm going to do is start SSH'ing into things - but
-lets start first things first.
+let's start first things first.
 
 ## Shaving yaks
 
@@ -721,5 +721,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1MDMwOTMwMywyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbNjE1MTMyNTcwLDE2NTAzMDkzMDMsMjE1Mj
+A2Nzc1XX0=
 -->
