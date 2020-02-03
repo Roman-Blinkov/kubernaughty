@@ -661,10 +661,13 @@ clean state in sync with the rest of the cluster.
 When the OOMkiller evicts your workload containers / processes - what do you
 think happens to your PVCs? Do your java daemons obey linux signals correctly?
 
-Look, since apparently this and
-understanding system behavior makes me a crazy person, look at the [fallacies
-of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
-for crying out loud. I'll invert it to be the **LAWS** of distributed computing:
+Unknown state at scale is the death of services and systems, and having something
+killing random processes and cgroups (even if you nice them nicely) is the
+antithesis of being able to rationalize and observe a system. Just reboot.
+
+Look at the [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
+
+I'll invert it to be the **LAWS** of distributed computing:
 
 * **The network is unrelaible**. In fact, software defined networking makes it even
   more fun because CPU and memory/IO starvation makes it unreliable. Not to
@@ -697,7 +700,12 @@ for crying out loud. I'll invert it to be the **LAWS** of distributed computing:
   what we did before we could all poorly re-implment RAFT to protect against
   bizarre networking issues.
 
-Uhhhh anyway. I've got root. Onto part 4.
+Must-read for the OOMKiller:
+
+* https://lwn.net/Articles/317814/
+* https://lwn.net/Articles/761118/
+
+I've got root. Onto part 4.
 
 [Continue on to Part 4: Lets kill a Kubernetes]()
 
