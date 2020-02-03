@@ -117,6 +117,7 @@ Here are the tools each alias relies on:
 
 - [The Azure CLI][azcli], kubectl, etc are already installed and pre-configured
 
+<a name="lol"></a>
 ### Command execution without SSH
 
 If you have an AKS cluster - in my case the cluster is VMSS based, single
@@ -724,6 +725,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNDg0MDgwOSw2OTUyMTE0NjYsMTY1MD
-MwOTMwMywyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbODQ0NzExNjc1LDY5NTIxMTQ2NiwxNjUwMz
+A5MzAzLDIxNTIwNjc3NV19
 -->
