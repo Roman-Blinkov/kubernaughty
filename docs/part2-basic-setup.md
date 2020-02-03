@@ -41,6 +41,7 @@ will see pre-created charts that show some of the key base metrics you should
 be watching at all times for Kubernetes clusters:
 
 ![azure insights](/images/azureinsights1.png "Azure Insights")
+![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
 ![azure insights DiskIO](/images/insights-diskio.png "Azure Insights DiskIO")
 ![azure insights DiskIO2](/images/insights-diskio-2.png "Azure Insights DiskIO2")
 
@@ -266,6 +267,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwMTgwNDMwMiwxMjc2ODYwNjgxLDIyNj
-E4NDE3MSw3NDQ4MjI1OF19
+eyJoaXN0b3J5IjpbMTgzMzI0OTM1MSwxMDAxODA0MzAyLDEyNz
+Y4NjA2ODEsMjI2MTg0MTcxLDc0NDgyMjU4XX0=
 -->
