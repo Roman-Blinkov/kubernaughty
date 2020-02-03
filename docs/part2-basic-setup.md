@@ -260,7 +260,7 @@ section.
 
 [linuxio]: https://cromwell-intl.com/open-source/performance-tuning/disks.html
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
-[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools)
+[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDkyMzEyMjBdfQ==
+eyJoaXN0b3J5IjpbMTAxODg0NTIxNV19
 -->
