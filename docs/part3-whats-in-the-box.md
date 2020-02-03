@@ -47,7 +47,7 @@ resources, but it is not something you would expose for HR to build websites on.
 
 Kubernetes - and cluster orchestration systems in general are CaaS - cluster as
 a service. This means they have more in relation to a normal virtual machine
-thn say, an Azure App Service, Heroku, PKS, or Openshift.
+rather than, an Azure App Service, Heroku, PKS, or Openshift.
 
 The consequences of this 'difference in terms' is the difference between your
 success with kube or your failure. If you go into your adoption thinking you
@@ -720,5 +720,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyMjg2MjA5NCwyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbMTcxODA5MDAxNCwyMTUyMDY3NzVdfQ==
 -->
