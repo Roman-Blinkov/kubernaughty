@@ -8,7 +8,7 @@ Contents:
 * [Technical Introduction](#techintro)
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
 * [Quotas leading to failure](#quotafail)
-* [Can I just increase my disk size to work around it?](#nope
+* [Can I just increase my disk size to work around it?](#nope)
 
 <a name="intro"></a>
 ## Introduction
@@ -264,6 +264,7 @@ For more reading on Azure / VM and storage quotas, see "[Azure VM storage perfor
 specific storage device, VM or subscription as they protect QoS for all
 customers.
 
+<a name="nope"></a>
 ## Can I just increase my disk size to work around it ?
 
 Short answer? No.
@@ -335,6 +336,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNDU3ODgzNiwtNjAwMzczNTkxLC04OT
-Q1NjIxMDksLTE5MTY4ODU5MDddfQ==
+eyJoaXN0b3J5IjpbLTEzMTAwMTE5NzYsLTYwMDM3MzU5MSwtOD
+k0NTYyMTA5LC0xOTE2ODg1OTA3XX0=
 -->
