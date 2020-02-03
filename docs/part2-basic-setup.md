@@ -245,7 +245,7 @@ So we're still not getting good signal. And the cluster is idle.
 
 Time to void the warranty.
 
-<a name="su"></a>
+<a name="summary"></a>
 ## Summary
 
 * **OS Disk queue depth metrics available are not clear indicators of system failure.**
@@ -266,6 +266,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNTk0NDMxLDIyNjE4NDE3MSw3NDQ4Mj
-I1OF19
+eyJoaXN0b3J5IjpbMTI3Njg2MDY4MSwyMjYxODQxNzEsNzQ0OD
+IyNThdfQ==
 -->
