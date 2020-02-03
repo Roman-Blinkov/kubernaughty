@@ -59,7 +59,7 @@ Kubernetes installations from an operator perspective regardless of vendor -
 being able to self root-cause and understand an issue is critical even for
 users using managed or hosted solutions.
 
-As I investigate / re-create other failure modes, I will continue to expand this doc set. This is a living document/repo 
+As I investigate / re-create other failure modes, I will continue to expand this doc set.
 
 <a name="techintro"></a>
 ## Technical introduction
@@ -339,5 +339,5 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzQ0ODQ3NiwtMTkxNjg4NTkwN119
+eyJoaXN0b3J5IjpbLTI4NTUxMzk4MiwtMTkxNjg4NTkwN119
 -->
