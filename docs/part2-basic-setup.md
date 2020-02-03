@@ -243,7 +243,6 @@ Time to void the warranty.
 ## Takeaways
 
 * **OS Disk queue depth metrics available are not clear indicators of system failure.**
-* The default Container Insights
 * Azure Container insights has decent pre-built workbooks and charts showing
   common kubernets metrics, and on the nodepool and VM level.
 
@@ -261,5 +260,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjM4ODc2MV19
+eyJoaXN0b3J5IjpbNzg4NTI5ODE1XX0=
 -->
