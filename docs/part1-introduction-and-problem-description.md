@@ -311,8 +311,8 @@ a lot more money than they need to) - doubly true for users attempting to hyper-
 the workloads within kubernetes since they probably can not meet the 
 container count/node density requirements.
 
-This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
-changes the *time until* they hit the issue especially with StatefulSet,
+This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - 
+this only changes the *time until* they hit the issue especially with StatefulSet,
 periodic/batch workloads running densely (packing all nodes densely with
 application containers, not setting resource limits) - and during that time
 you're paying for completely un-utilized disk and VM resources.
@@ -340,6 +340,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTkzNjk4NjgwLC0yMzU1NzUzMTEsLTYwMD
-M3MzU5MSwtODk0NTYyMTA5LC0xOTE2ODg1OTA3XX0=
+eyJoaXN0b3J5IjpbLTEwNzkzMTEyODQsLTIzNTU3NTMxMSwtNj
+AwMzczNTkxLC04OTQ1NjIxMDksLTE5MTY4ODU5MDddfQ==
 -->
