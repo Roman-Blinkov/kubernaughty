@@ -9,6 +9,7 @@ Contents:
 * [Idle IO? The plot thickens](#idleio)
 * [Azure Monitoring of the *nodepool*](#nodepool)
 * [Looking at the Azure Container Insight workbooks](#workbooks)
+* [Container operations?](#containers)
 <a name="intro"></a>
 ## Quick Intro
 
@@ -262,5 +263,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5OTQ4OTAxMyw3NDQ4MjI1OF19
+eyJoaXN0b3J5IjpbMjI2MTg0MTcxLDc0NDgyMjU4XX0=
 -->
