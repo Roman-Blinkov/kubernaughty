@@ -13,7 +13,7 @@ There are many gotchas, mud pits and blind spots running distributed systems,
 and kubernetes is no different. Hopefully, this stuff helps you and your
 team.
 
-
+## Kubernaughty 1: IO saturation and throttling
 
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
  - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
@@ -22,5 +22,5 @@ team.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2ODI3NjUyMl19
+eyJoaXN0b3J5IjpbLTQ5Mzk2MjA0Ml19
 -->
