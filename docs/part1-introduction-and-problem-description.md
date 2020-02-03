@@ -236,7 +236,7 @@ nature if this issue, burst limits will also be exceeded.
 The disk devices / drives map to specific disk classes or tiers in Azure and
 other IaaS providers. On Azure, the default is Premium SSD storage so we can
 look at the size (128 GiB) and map that to the
-**P10** disk tier with a Max IOPS of **500** and a Max Throuput of 100 MiB/sec.
+**P10** disk tier with a Max IOPS of **500** and a Max throuput of 100 MiB/sec.
 
 ![Disk Sizes Trimmed](/images/disk-sizes-trimmed.png "p10 disk tier")
 
@@ -334,6 +334,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg3MTQ4MjI1LC04OTQ1NjIxMDksLTE5MT
-Y4ODU5MDddfQ==
+eyJoaXN0b3J5IjpbLTcxMTI0MTgyMywtODk0NTYyMTA5LC0xOT
+E2ODg1OTA3XX0=
 -->
