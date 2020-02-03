@@ -161,7 +161,7 @@ a hacky `vmssrc` script you can drop on your $PATH. I'm old and I like bash.
 
 Here's an example using the vmssrc command:
 
-[![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
+![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
 
 We're still going to enable ssh - but keep that ^ in the back of your mind.
 
@@ -725,6 +725,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ0NzExNjc1LDY5NTIxMTQ2NiwxNjUwMz
-A5MzAzLDIxNTIwNjc3NV19
+eyJoaXN0b3J5IjpbLTgzOTMwMTUyOCw2OTUyMTE0NjYsMTY1MD
+MwOTMwMywyMTUyMDY3NzVdfQ==
 -->
