@@ -58,6 +58,7 @@ need (CI/CD, app packaging, etc)** its going to be painful and slow.
 There are no 'quick fixes' to changing the very nature of how you rationalize
 and operate your applications at a global scale.
 
+<a name="void"></a>
 ## Voiding the Warranty
 
 In part 2 we left off with a lot of questions - given the issue summary, what
@@ -720,5 +721,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTkwODYwOTgsMjE1MjA2Nzc1XX0=
+eyJoaXN0b3J5IjpbMTY1MDMwOTMwMywyMTUyMDY3NzVdfQ==
 -->
