@@ -31,7 +31,7 @@ On to the fun.
 <a name="paas"></a>
 ## Wait, Kubernetes isn't a PaaS...
 
-Yeah, OK, I lied. I'm not done with you yet. Let me drop some painful hard
+I lied. I'm not done with you yet. Let me drop some painful hard
 truths (hot takes?) about Kubernetes and this entire stack:
 
 It is not an application developer tool.
@@ -720,5 +720,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4NDU2NjU1NSwyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbLTE5NDE5ODU4NDIsMjE1MjA2Nzc1XX0=
 -->
