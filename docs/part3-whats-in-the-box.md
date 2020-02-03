@@ -1,8 +1,6 @@
 # Whats in the box?! (voiding the warranty)
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+ - [Introduction](#intro)
 
 Contents:
 
@@ -724,5 +722,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE1MjA2Nzc1XX0=
+eyJoaXN0b3J5IjpbNzE5MjQxNjg3LDIxNTIwNjc3NV19
 -->
