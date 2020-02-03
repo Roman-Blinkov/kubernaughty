@@ -265,7 +265,7 @@ specific storage device, VM or subscription as they protect QoS for all
 customers.
 
 <a name="nope"></a>
-## Can I just increase my disk size to work around it ?
+## Summary (Can I just increase my disk size to work around it?)
 
 Short answer? No.
 
@@ -336,6 +336,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTAwMTE5NzYsLTYwMDM3MzU5MSwtOD
-k0NTYyMTA5LC0xOTE2ODg1OTA3XX0=
+eyJoaXN0b3J5IjpbNDQ2MDczOTk3LC02MDAzNzM1OTEsLTg5ND
+U2MjEwOSwtMTkxNjg4NTkwN119
 -->
