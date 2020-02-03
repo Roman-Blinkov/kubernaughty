@@ -1,6 +1,11 @@
 # kubernaughty
 
-This repository contains documents, tools and other information rew
+This is a collection of documentation, how-tos, tools and other information on
+debugging and identifying Kubernetes/container workload failures, performance
+and reliability considerations.
+
+Initially this investigation started as customer-reported failures at the DNS, netw
+
 
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
  - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
@@ -19,5 +24,5 @@ team.
 Currently, focused on in-depth diagnosis for IO / Resource contention.
 IO, resource contention notes, docs and tools.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2Mjc4NTAzM119
+eyJoaXN0b3J5IjpbLTEwMTQyMzkyMDFdfQ==
 -->
