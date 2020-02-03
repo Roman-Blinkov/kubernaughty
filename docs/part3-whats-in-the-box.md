@@ -183,7 +183,7 @@ Technically, I haven't broken anything on the cluster yet, so I don't really
 need SSH - I just know I am going to need it, and want it and that I want to
 give you a little tour of the node so YOLO.
 
-Per the instructions above you have to update some vmss, root around for some
+Per the instructions I linked you have to update some vmss, root around for some
 info. So I automated it.
 
 In the https://github.com/jnoller/kubernaughty/tools/ directory, the script aksssh does what some of what you need:
@@ -727,6 +727,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyMDUxNTQ0Nyw2OTUyMTE0NjYsMTY1MD
+eyJoaXN0b3J5IjpbMTc1MjIxOTY5Miw2OTUyMTE0NjYsMTY1MD
 MwOTMwMywyMTUyMDY3NzVdfQ==
 -->
