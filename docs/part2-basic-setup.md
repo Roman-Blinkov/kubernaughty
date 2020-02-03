@@ -219,7 +219,7 @@ critical view:
 
 ![DiskIO busy](/images/diskbusy-insights.png "mmmm flavor train!")
 
-We'll watch those.
+We're going to watch these.
 
 ## Container operations?
 
@@ -262,5 +262,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ3Mzg5MzA4LDc0NDgyMjU4XX0=
+eyJoaXN0b3J5IjpbLTcxMTAyMDAyOCw3NDQ4MjI1OF19
 -->
