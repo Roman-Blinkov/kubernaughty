@@ -726,7 +726,8 @@ Uhhhh anyway. I've got root. Onto part 4.
 [kubectl-plugin-ssh-jump]: https://github.com/yokawasa/kubectl-plugin-ssh-jump
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODAxODQ2ODksNjk1MjExNDY2LDE2NT
-AzMDkzMDMsMjE1MjA2Nzc1XX0=
+eyJoaXN0b3J5IjpbLTc4MDMzMzA0NCw2OTUyMTE0NjYsMTY1MD
+MwOTMwMywyMTUyMDY3NzVdfQ==
 -->
