@@ -14,8 +14,6 @@ Contents:
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
 * [Quotas leading to failure](#quotafail)
 
->**This is an ongoing project / labor of love. It is not complete by any means**
-
 <a name="intro"></a>
 ## Introduction
 
@@ -341,5 +339,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4ODU0OTM4NiwtMTkxNjg4NTkwN119
+eyJoaXN0b3J5IjpbLTE1MTMzODYzNDMsLTE5MTY4ODU5MDddfQ
+==
 -->
