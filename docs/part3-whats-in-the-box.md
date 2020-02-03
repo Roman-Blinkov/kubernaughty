@@ -74,7 +74,7 @@ So. We have a cluster, and we have some nodes, and I'm a pre-cloud grumpy
 engineer so the first thing I'm going to do is start SSH'ing into things - but
 let's start first things first.
 
-## Shaving yaks
+### Shaving yaks
 
 Invariably we all have tools, setups and other things we all prefer. Since I'm
 going to be sharing a lot of CLI things, I figured I'd show you my shell
@@ -721,6 +721,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1MTMyNTcwLDE2NTAzMDkzMDMsMjE1Mj
+eyJoaXN0b3J5IjpbNDI4Nzg3Njk3LDE2NTAzMDkzMDMsMjE1Mj
 A2Nzc1XX0=
 -->
