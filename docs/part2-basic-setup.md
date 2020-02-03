@@ -68,7 +68,7 @@ Hmmmmmmm.... which disks are busy?
 
 ## Azure Insights: Making a custom chart
 
-Since I already know how this play ends (it's a tragedy Brent) - I'll show you
+Since I already know how this play ends (it's a tragedy) - I'll show you
 the chart you can build using Azure Insights (Metrics View) that tracks some
 of the metrics I will be going into more later:
 
@@ -262,5 +262,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzUwNDg5MzYsNzQ0ODIyNThdfQ==
+eyJoaXN0b3J5IjpbLTgwODQ3NDI3LDc0NDgyMjU4XX0=
 -->
