@@ -1,5 +1,13 @@
 # kubernaughty
 
+This repository contains documents, tools and other information rew
+
+ - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
+ - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
+ - [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+ - [Part 4: That's how you fail a container runtime](/docs/part-4-how-you-kill-a-container-runtime.md)
+
+
 This is a collection of documentation, how-tos, tools and other information on
 debugging and identifying Kubernetes/container workload failures, performance
 and reliability considerations, and other `kubernaughties`.
@@ -10,3 +18,6 @@ team.
 
 Currently, focused on in-depth diagnosis for IO / Resource contention.
 IO, resource contention notes, docs and tools.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTE2Mjc4NTAzM119
+-->
