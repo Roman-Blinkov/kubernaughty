@@ -1,6 +1,6 @@
 # Kubernaughty 1: IO Saturation and analysis
 
-
+>**This is an ongoing project / labor of love. It is not complete by any means**
 
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
  - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
@@ -339,6 +339,5 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTMzODYzNDMsLTE5MTY4ODU5MDddfQ
-==
+eyJoaXN0b3J5IjpbLTEzMzQ0ODQ3NiwtMTkxNjg4NTkwN119
 -->
