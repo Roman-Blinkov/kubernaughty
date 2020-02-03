@@ -54,7 +54,7 @@ honest, and candid. This means that while I work for Microsoft/Azure/AKS and
 I will not disclose internal information, I do not redact or otherwise doctor
 or change things due to my employer.
 
-My goal with this is to walk through (end to end) testing and debugging
+My goal with this is to walk through (end to end) testing, debugging and analyzing
 Kubernetes installations from an operator perspective regardless of vendor -
 being able to self root-cause and understand an issue is critical even for
 users using managed or hosted solutions.
@@ -340,5 +340,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNzc5Mjg3NCwtMTkxNjg4NTkwN119
+eyJoaXN0b3J5IjpbLTE0OTUyNzQ4MjEsLTE5MTY4ODU5MDddfQ
+==
 -->
