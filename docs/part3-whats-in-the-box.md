@@ -7,6 +7,7 @@ Contents:
 	 - [Shaving yaks](#yak)
 	 - [Command execution without SSH](#lol)
 	 - [Enabling SSH](#ssh)
+	 - [Recap](#recap)
 
 
 <a name="intro"></a>
@@ -730,6 +731,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwMDQ4NTA0LDY5NTIxMTQ2NiwxNjUwMz
+eyJoaXN0b3J5IjpbMzg1ODI2Mzk3LDY5NTIxMTQ2NiwxNjUwMz
 A5MzAzLDIxNTIwNjc3NV19
 -->
