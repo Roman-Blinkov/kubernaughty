@@ -216,7 +216,7 @@ Not today yakshaving satan!
 This kubectl ssh plugin is pretty handy - it does the needed ssh container/agent
 forwarding/transparent jump that I want for now:
 
-[![asciicast](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC.svg)](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC)
+![asciicast](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC.svg)](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC)
 
 Cool, I has root now.
 
@@ -728,6 +728,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MDMzMzA0NCw2OTUyMTE0NjYsMTY1MD
-MwOTMwMywyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbMjEzNjk3MjQ3LDY5NTIxMTQ2NiwxNjUwMz
+A5MzAzLDIxNTIwNjc3NV19
 -->
