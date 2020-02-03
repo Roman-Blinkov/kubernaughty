@@ -6,9 +6,8 @@ Contents:
 
 * [Introduction](#intro)
 
-**WIP**
 
-TBD - href
+<a name="intro"></a>
 ## Introduction (Part 3)
 
 In parts 1 & 2 I walked though the problem summary and initial cluster
@@ -722,5 +721,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE5MjQxNjg3LDIxNTIwNjc3NV19
+eyJoaXN0b3J5IjpbLTY3NzcyMzIxMCwyMTUyMDY3NzVdfQ==
 -->
