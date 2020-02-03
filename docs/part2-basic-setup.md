@@ -223,6 +223,7 @@ critical view:
 
 We're going to watch these.
 
+<a name="containers"></a>
 ## Container operations?
 
 Another key insights report is the `Kubelet` report - this will tell you the
@@ -264,6 +265,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTYzMzg4NzIzLDIyNjE4NDE3MSw3NDQ4Mj
-I1OF19
+eyJoaXN0b3J5IjpbLTE5NTM3NDExNjgsMjI2MTg0MTcxLDc0ND
+gyMjU4XX0=
 -->
