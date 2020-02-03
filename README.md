@@ -20,7 +20,7 @@ team.
  - [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
  - [Part 4: That's how you fail a container runtime](/docs/part-4-how-you-kill-a-container-runtime.md)
 
-
+Feel free to use the bug tracker to ask questions or offer changes.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Mzk2MjA0Ml19
+eyJoaXN0b3J5IjpbMTM4ODU0MzMwXX0=
 -->
