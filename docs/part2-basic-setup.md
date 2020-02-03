@@ -10,7 +10,8 @@ Contents:
 * [Azure Monitoring of the *nodepool*](#nodepool)
 * [Looking at the Azure Container Insight workbooks](#workbooks)
 * [Container operations?](#containers)
-* 
+* [Summary](#summary)
+
 <a name="intro"></a>
 ## Quick Intro
 
@@ -266,6 +267,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwMTgwNDMwMiwxMDAxODA0MzAyLDEyNz
-Y4NjA2ODEsMjI2MTg0MTcxLDc0NDgyMjU4XX0=
+eyJoaXN0b3J5IjpbMzAwNDkxNjg0LDEwMDE4MDQzMDIsMTI3Nj
+g2MDY4MSwyMjYxODQxNzEsNzQ0ODIyNThdfQ==
 -->
