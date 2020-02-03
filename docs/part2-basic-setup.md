@@ -1,15 +1,16 @@
 
 # Cluster Setup & Basic Monitoring
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
-
 Contents:
 
 * [Introduction](#intro)
-* [Azure Insights setup](#insights)
+* [Basic cluster setup and configuration](#basic)
+* [Azure Container Insights / Monitoring setup](#insights)
 * [Idle IO? The plot thickens](#idleio)
+* [Azure Monitoring of the *nodepool*](#nodepool)
+* [Looking at the Azure Container Insight workbooks](#workbooks)
+* [Container operations?](#containers)
+* [Summary](#summary)
 
 <a name="intro"></a>
 ## Quick Intro
@@ -18,6 +19,7 @@ This picks up from Part 1, this is part narration/notes and part journal vs
 part one. This follows the actual steps / back tracking needed to identify
 these failures.
 
+<a name="basic"></a>
 ## Basic cluster setup and configuration
 
 * Provider: AKS
@@ -31,6 +33,7 @@ these failures.
 * Azure CNI cluster
 * Agentpool: aks-agentpool-57418505-vmss
 
+<a name="insights"></a>
 ## Azure Container Insights / Monitoring setup
 
 As I am approaching this as a user, I've enabled Azure Container insights, if
@@ -68,7 +71,7 @@ Hmmmmmmm.... which disks are busy?
 
 ## Azure Insights: Making a custom chart
 
-Since I already know how this play ends (it's a tragedy Brent) - I'll show you
+Since I already know how this play ends (it's a tragedy) - I'll show you 
 the chart you can build using Azure Insights (Metrics View) that tracks some
 of the metrics I will be going into more later:
 
@@ -84,7 +87,7 @@ Key metrics I've plotted:
 * memoryWorkingSetPercentage
 
 Yes - this mixes data types (integer, counts, averages) - you could exclude IOPS
-as an integer in this chart but the ripple effect wouldn't be as clear.
+as an integer in this chart but the ripple effect wouldn't be as clear. The visual is the key.
 
 <a name="idleio"></a>
 ## Idle IO? The plot thickens
@@ -120,8 +123,9 @@ determine a few things:
 Based on this graph alone, you would be unable to diagnose the issue but you
 could infer that something odd was occurring.
 
-Given this issue is a generalized IaaS issue - lets change tacts.
+Given this issue is a generalized IaaS issue - lets change tactics.
 
+<a name="nodepool"></a>
 ## Azure Monitoring of the *nodepool*
 
 Yes, I'm cheating since I know how this ends - but given the above view, what
@@ -184,7 +188,8 @@ it smells weird.
 Building charts by hand on a per-node basis seems kinda not scalable and queue
 depth as we can map it isn't a good indicator of what's to come. Let's move on.
 
-## Looking at the Azure Container Insight workbooks
+<a name="workbook"></a>
+## Looking at the Azure Container Insights workbooks
 
 If you go to your cluster in the Azure portal and go to 'Insights' you will
 see a large and somewhat confusing set of workbooks(?) and options to view. This
@@ -217,8 +222,9 @@ critical view:
 
 ![DiskIO busy](/images/diskbusy-insights.png "mmmm flavor train!")
 
-We'll watch those.
+We're going to watch these.
 
+<a name="containers"></a>
 ## Container operations?
 
 Another key insights report is the `Kubelet` report - this will tell you the
@@ -240,13 +246,12 @@ So we're still not getting good signal. And the cluster is idle.
 
 Time to void the warranty.
 
-## Takeaways
+<a name="summary"></a>
+## Summary
 
-* **OS Disk queue depth metrics available in the metrics/monitoring portal are
-  not clear indicators of system failure.**
-* The default Container Insights
-* Azure Container insights has decent pre-built workbooks and charts showing
-  common kubernets metrics, and on the nodepool and VM level.
+* **OS Disk queue depth metrics available are not clear indicators of system failure.**
+* Azure Container insights has pre-built workbooks and charts showing
+  common kubernetes metrics, and on the nodepool and VM level.
 
 Linux performance links:
 
@@ -260,3 +265,8 @@ section.
 
 [linuxio]: https://cromwell-intl.com/open-source/performance-tuning/disks.html
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
+[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMzAwNDkxNjg0LDEwMDE4MDQzMDIsMTI3Nj
+g2MDY4MSwyMjYxODQxNzEsNzQ0ODIyNThdfQ==
+-->

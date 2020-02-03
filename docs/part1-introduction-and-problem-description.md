@@ -8,6 +8,7 @@ Contents:
 * [Technical Introduction](#techintro)
 * [Root Cause / Known Failures](#iknowthereisnorootcause)
 * [Quotas leading to failure](#quotafail)
+* [Can I just increase my disk size to work around it?](#nope)
 
 <a name="intro"></a>
 ## Introduction
@@ -129,17 +130,17 @@ reports online suggest that this is a common and widespread issue that is not
 well understood. I'm not casting shade at anyone here, so don't push me frank.
 
 > Side note: "why don't I see this on infrastructure or VMs I build?" Thats a good
-> question, why aren't you seeing it - you should! Physical servers and devices
-> all have specific behaviors when they hit IO limits, network or other
->limitations. If you are not testing your entire workload under non-synthetic
->/ peak traffic + 25% levels you won't know what the *actual* failure would be
->using physical devices.
->
+ question, why aren't you seeing it - you should! Physical servers and devices
+ all have specific behaviors when they hit IO limits, network or other
+ limitations. If you are not testing your entire workload under non-synthetic
+ / peak traffic + 25% levels you won't know what the *actual* failure would be
+ using physical devices.
+
 >PS: You're probably not doing fleet level/global and regional testing, trend and
->error analysis and testing all the way down to the node level.
->
+ error analysis and testing all the way down to the node level.
+
 >PPS: Are you accounting for software/service/system overhead when doing your
->capacity planning - **after** you test peak load?
+ capacity planning - **after** you test peak load?
 
 <a name="iknowthereisnorootcausesigh"></a>
 ## Root Cause / Known failures
@@ -211,7 +212,7 @@ until all nodes go NotReady while the IO completes/backs off.
 HPAs or other auto-scale-up or scale-down tools may also trigger this.
 
  <a name="quotafail"></a>
-# Quotas leading to failure
+## Quotas leading to failure
 
 When a VM, or in this case - an AKS cluster - is provisioned the OS disks for
 the worker nodes is **100 GiB**. A common assumption would be that the IOPS
@@ -263,7 +264,8 @@ For more reading on Azure / VM and storage quotas, see "[Azure VM storage perfor
 specific storage device, VM or subscription as they protect QoS for all
 customers.
 
-# Can I just increase my disk size to work around it ?
+<a name="nope"></a>
+## Summary (Can I just increase my disk size to work around it?)
 
 Short answer? No.
 
@@ -304,14 +306,18 @@ under load utilizing a 2 TiB OS disk will still be throttled.
 Additionally: You'd be paying full price for a 2 TiB OS disk - when all you need
 is the IOPS performance, not the space.
 
-Most users when they encounter these failures simply over provision. This
-includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
-changes the *time until* they hit the issue especially with StatefulSet,
+Most users when they encounter these failures simply over provision (spending 
+a lot more money than they need to) - doubly true for users attempting to hyper-pack
+the workloads within kubernetes since they probably can not meet the 
+container count/node density requirements.
+
+This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - 
+this only changes the *time until* they hit the issue especially with StatefulSet,
 periodic/batch workloads running densely (packing all nodes densely with
 application containers, not setting resource limits) - and during that time
-you're paying for completely unutilized disk and VM resources.
+you're paying for completely un-utilized disk and VM resources.
 
-Your likelihood of hitting this is directly related to the load / traffic your
+The likelihood of hitting this is directly related to the load / traffic your
 application (therefore the cluster) is under. The higher the load, the higher
 the likelihood.
 

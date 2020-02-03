@@ -1,16 +1,16 @@
 # Whats in the box?! (voiding the warranty)
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
-
 Contents:
+ - [Introduction](#intro)
+ - [Kubernetes isn't a PaaS...](#paas)
+ - [Voiding the Warranty](#void)
+	 - [Shaving yaks](#yak)
+	 - [Command execution without SSH](#lol)
+	 - [Enabling SSH](#ssh)
+	 - [Recap](#recap)
 
-* [Introduction](#intro)
 
-**WIP**
-
-TBD - href
+<a name="intro"></a>
 ## Introduction (Part 3)
 
 In parts 1 & 2 I walked though the problem summary and initial cluster
@@ -33,9 +33,10 @@ Kubernetes is a PaaS (platform as a service).
 
 On to the fun.
 
+<a name="paas"></a>
 ## Wait, Kubernetes isn't a PaaS...
 
-Yeah, OK, I lied. I'm not done with you yet. Let me drop some painful hard
+I lied. I'm not done with you yet. Let me drop some painful hard
 truths (hot takes?) about Kubernetes and this entire stack:
 
 It is not an application developer tool.
@@ -51,7 +52,7 @@ resources, but it is not something you would expose for HR to build websites on.
 
 Kubernetes - and cluster orchestration systems in general are CaaS - cluster as
 a service. This means they have more in relation to a normal virtual machine
-than say, an Azure App Service, Heroku, PKS, or Openshift.
+rather than an Azure App Service, Heroku, PKS, or Openshift.
 
 The consequences of this 'difference in terms' is the difference between your
 success with kube or your failure. If you go into your adoption thinking you
@@ -60,8 +61,9 @@ application developers without **adding on all of the paas-like things you'll
 need (CI/CD, app packaging, etc)** its going to be painful and slow.
 
 There are no 'quick fixes' to changing the very nature of how you rationalize
-and operate your applications at a global scale. Stop trying.
+and operate your applications at a global scale.
 
+<a name="void"></a>
 ## Voiding the Warranty
 
 In part 2 we left off with a lot of questions - given the issue summary, what
@@ -75,9 +77,9 @@ up to (using my misleading chart):
 
 So. We have a cluster, and we have some nodes, and I'm a pre-cloud grumpy
 engineer so the first thing I'm going to do is start SSH'ing into things - but
-lets start first things first.
+let's start first things first.
 
-## Shaving yaks
+### Shaving yaks
 
 Invariably we all have tools, setups and other things we all prefer. Since I'm
 going to be sharing a lot of CLI things, I figured I'd show you my shell
@@ -117,7 +119,8 @@ Here are the tools each alias relies on:
 
 - [The Azure CLI][azcli], kubectl, etc are already installed and pre-configured
 
-## Command execution without SSH
+<a name="lol"></a>
+### Command execution without SSH
 
 If you have an AKS cluster - in my case the cluster is VMSS based, single
 nodepool and you want to perform remote execution on the nodes without
@@ -160,11 +163,13 @@ a hacky `vmssrc` script you can drop on your $PATH. I'm old and I like bash.
 
 Here's an example using the vmssrc command:
 
-[![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
+[
+![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
 
 We're still going to enable ssh - but keep that ^ in the back of your mind.
 
-## Enabling SSH
+<a name="ssh"></a>
+### Enabling SSH
 
 AKS does not expose SSH to work nodes normally, it is not recommended, and
 messing around as root on production systems is a terrible idea. Please read:
@@ -180,12 +185,13 @@ Technically, I haven't broken anything on the cluster yet, so I don't really
 need SSH - I just know I am going to need it, and want it and that I want to
 give you a little tour of the node so YOLO.
 
-Per the instructions above you have to update some vmss, root around for some
+Per the instructions I linked you have to update some vmss, root around for some
 info. So I automated it.
 
-In the https://github.com/jnoller/kubernaughty/tools/ directory, the script aksssh does what some of what you need:
+In the [`tools/`][tools] directory, the script aksssh does what some of what you need:
 
-[![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
+[
+![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
 
 **I recommend generating new/clean SSH keys for stuff like this - don't
 re-use existing ssh keys**:
@@ -234,6 +240,7 @@ All it does is wrap the awesome plugin above and dynamically build a host map.
 
 [![asciicast](https://asciinema.org/a/295438.svg)](https://asciinema.org/a/295438)
 
+<a name="recap"></a>
 ## Just checking
 
 Lets quickly recap the state of the cluster from the 'black box' point of view,
@@ -278,7 +285,7 @@ disruption budgets (and resource limits) nothing will make your application
 'just work' - Node reboots/crashes happen. Resource contention happens. It's
 like the gravit(ies) of distributed systems.
 
-Enough of that - let's also check the portal metrics too - the cluster has been
+Let's check the portal metrics too - the cluster has been
 running for awhile now, so let's see what the idle cluster has been up to:
 
 ( **2020-01-22** picking up, cluster is now almost 2 weeks old)
@@ -665,9 +672,12 @@ Unknown state at scale is the death of services and systems, and having somethin
 killing random processes and cgroups (even if you nice them nicely) is the
 antithesis of being able to rationalize and observe a system. Just reboot.
 
-Look at the [fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
+LLook, since apparently this and
+understanding system behavior makes me a crazy person, look at the [fallacies 
+of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
 
-I'll invert it to be the **LAWS** of distributed computing:
+
+for crying out loud. I'll invert it to be the **LAWS** of distributed computing:
 
 * **The network is unrelaible**. In fact, software defined networking makes it even
   more fun because CPU and memory/IO starvation makes it unreliable. Not to
@@ -705,7 +715,7 @@ Must-read for the OOMKiller:
 * https://lwn.net/Articles/317814/
 * https://lwn.net/Articles/761118/
 
-I've got root. Onto part 4.
+Uhhhh anyway. I've got root. Onto part 4.
 
 [Continue on to Part 4: Lets kill a Kubernetes]()
 
@@ -720,3 +730,8 @@ I've got root. Onto part 4.
 [kubectl-plugin-ssh-jump]: https://github.com/yokawasa/kubectl-plugin-ssh-jump
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMTg0MzA2ODcsNjk1MjExNDY2LDE2NT
+AzMDkzMDMsMjE1MjA2Nzc1XX0=
+-->
