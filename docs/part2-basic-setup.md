@@ -29,6 +29,7 @@ these failures.
 * Azure CNI cluster
 * Agentpool: aks-agentpool-57418505-vmss
 
+<a name="insights"></a>
 ## Azure Container Insights / Monitoring setup
 
 As I am approaching this as a user, I've enabled Azure Container insights, if
@@ -258,5 +259,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODI1OTAzMDYsNzQ0ODIyNThdfQ==
+eyJoaXN0b3J5IjpbLTg1MjczNzg3OCw3NDQ4MjI1OF19
 -->
