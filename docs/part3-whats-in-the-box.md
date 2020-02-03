@@ -28,6 +28,7 @@ Kubernetes is a PaaS (platform as a service).
 
 On to the fun.
 
+<a name="paas"></a>
 ## Wait, Kubernetes isn't a PaaS...
 
 Yeah, OK, I lied. I'm not done with you yet. Let me drop some painful hard
@@ -719,5 +720,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcyMzkwMjIxLDIxNTIwNjc3NV19
+eyJoaXN0b3J5IjpbLTc4NDU2NjU1NSwyMTUyMDY3NzVdfQ==
 -->
