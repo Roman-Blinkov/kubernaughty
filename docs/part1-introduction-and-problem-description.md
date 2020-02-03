@@ -1,4 +1,4 @@
-# Diagnosing and chasing Kubernetes Kubernaughties
+# Kubernaughty 1: IO Saturation and Failure
 
 - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
 - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
@@ -338,3 +338,6 @@ considerations later.
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEwMTg3MzcwNTZdfQ==
+-->
