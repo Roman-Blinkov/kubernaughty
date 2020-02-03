@@ -285,7 +285,7 @@ disruption budgets (and resource limits) nothing will make your application
 'just work' - Node reboots/crashes happen. Resource contention happens. It's
 like the gravit(ies) of distributed systems.
 
-Enough of that - let's also check the portal metrics too - the cluster has been
+Let's check the portal metrics too - the cluster has been
 running for awhile now, so let's see what the idle cluster has been up to:
 
 ( **2020-01-22** picking up, cluster is now almost 2 weeks old)
@@ -732,6 +732,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODU2MDc5MTUsNjk1MjExNDY2LDE2NT
+eyJoaXN0b3J5IjpbLTExMTg0MzA2ODcsNjk1MjExNDY2LDE2NT
 AzMDkzMDMsMjE1MjA2Nzc1XX0=
 -->
