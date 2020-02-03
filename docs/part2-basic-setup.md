@@ -1,10 +1,6 @@
 
 # Cluster Setup & Basic Monitoring
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
-
 Contents:
 
 * [Introduction](#intro)
@@ -260,5 +256,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ0ODIyNThdfQ==
+eyJoaXN0b3J5IjpbNzE3NzUwNjMsNzQ0ODIyNThdfQ==
 -->
