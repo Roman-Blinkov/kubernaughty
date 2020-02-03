@@ -1,5 +1,7 @@
 # Kubernaughty 1: IO Saturation and analysis
 
+
+
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
  - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
  - [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
@@ -59,7 +61,7 @@ Kubernetes installations from an operator perspective regardless of vendor -
 being able to self root-cause and understand an issue is critical even for
 users using managed or hosted solutions.
 
-As I investigate / re-create other failure modes, I will continue to expand this doc set. Thi
+As I investigate / re-create other failure modes, I will continue to expand this doc set. This is a living document/repo 
 
 <a name="techintro"></a>
 ## Technical introduction
@@ -339,5 +341,5 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg2Mzk5Mjc5LC0xOTE2ODg1OTA3XX0=
+eyJoaXN0b3J5IjpbMTU4ODU0OTM4NiwtMTkxNjg4NTkwN119
 -->
