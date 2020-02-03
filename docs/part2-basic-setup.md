@@ -249,7 +249,7 @@ Time to void the warranty.
 ## Summary
 
 * **OS Disk queue depth metrics available are not clear indicators of system failure.**
-* Azure Container insights has decent pre-built workbooks and charts showing
+* Azure Container insights has pre-built workbooks and charts showing
   common kubernetes metrics, and on the nodepool and VM level.
 
 Linux performance links:
@@ -266,6 +266,6 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3Njg2MDY4MSwyMjYxODQxNzEsNzQ0OD
-IyNThdfQ==
+eyJoaXN0b3J5IjpbMTAwMTgwNDMwMiwxMjc2ODYwNjgxLDIyNj
+E4NDE3MSw3NDQ4MjI1OF19
 -->
