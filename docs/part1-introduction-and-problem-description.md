@@ -211,7 +211,7 @@ until all nodes go NotReady while the IO completes/backs off.
 HPAs or other auto-scale-up or scale-down tools may also trigger this.
 
  <a name="quotafail"></a>
-# Quotas leading to failure
+## Quotas leading to failure
 
 When a VM, or in this case - an AKS cluster - is provisioned the OS disks for
 the worker nodes is **100 GiB**. A common assumption would be that the IOPS
@@ -334,6 +334,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMDM3MzU5MSwtODk0NTYyMTA5LC0xOT
-E2ODg1OTA3XX0=
+eyJoaXN0b3J5IjpbLTE5NDI3NTU2NzgsLTYwMDM3MzU5MSwtOD
+k0NTYyMTA5LC0xOTE2ODg1OTA3XX0=
 -->
