@@ -68,7 +68,7 @@ Hmmmmmmm.... which disks are busy?
 
 ## Azure Insights: Making a custom chart
 
-Since I already know how this play ends (it's a tragedy) - I'll show you
+Since I already know how this play ends (it's a tragedy) - I'll show you 
 the chart you can build using Azure Insights (Metrics View) that tracks some
 of the metrics I will be going into more later:
 
@@ -84,7 +84,7 @@ Key metrics I've plotted:
 * memoryWorkingSetPercentage
 
 Yes - this mixes data types (integer, counts, averages) - you could exclude IOPS
-as an integer in this chart but the ripple effect wouldn't be as clear.
+as an integer in this chart but the ripple effect wouldn't be as clear. The visual is the key.
 
 <a name="idleio"></a>
 ## Idle IO? The plot thickens
@@ -262,5 +262,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwODQ3NDI3LDc0NDgyMjU4XX0=
+eyJoaXN0b3J5IjpbMjQ3Mzg5MzA4LDc0NDgyMjU4XX0=
 -->
