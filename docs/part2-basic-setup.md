@@ -7,6 +7,7 @@ Contents:
 * [Basic cluster setup and configuration](#basic)
 * [Azure Container Insights / Monitoring setup](#insights)
 * [Idle IO? The plot thickens](#idleio)
+* [Azure Monitoring of the *nodepool*](#nodepool)
 
 <a name="intro"></a>
 ## Quick Intro
@@ -259,5 +260,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MjczNzg3OCw3NDQ4MjI1OF19
+eyJoaXN0b3J5IjpbNjE1MDk3NjM5LDc0NDgyMjU4XX0=
 -->
