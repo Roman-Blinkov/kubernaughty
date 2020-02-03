@@ -3,7 +3,7 @@
 Contents:
  - [Introduction](#intro)
  - [Kubernetes isn't a PaaS...](#paas)
- - [Voiding the Warranty]()
+ - [Voiding the Warranty](#void)
 	 - [Shaving yaks]()
 
 
@@ -723,6 +723,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNTU3OTA0OSwxNjUwMzA5MzAzLDIxNT
+eyJoaXN0b3J5IjpbMTQ3NzY0ODAwMCwxNjUwMzA5MzAzLDIxNT
 IwNjc3NV19
 -->
