@@ -120,7 +120,7 @@ determine a few things:
 Based on this graph alone, you would be unable to diagnose the issue but you
 could infer that something odd was occurring.
 
-Given this issue is a generalized IaaS issue - lets change tacts.
+Given this issue is a generalized IaaS issue - lets change tactics.
 
 <a name="nodepool"></a>
 ## Azure Monitoring of the *nodepool*
@@ -261,5 +261,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MDM3NTQwLDc0NDgyMjU4XX0=
+eyJoaXN0b3J5IjpbMTM1ODA0NzM1MCw3NDQ4MjI1OF19
 -->
