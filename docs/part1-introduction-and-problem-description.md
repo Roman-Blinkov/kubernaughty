@@ -267,7 +267,7 @@ customers.
 <a name="nope"></a>
 ## Summary (Can I just increase my disk size to work around it?)
 
-Short answer? No. You just moved the goal posts.
+Short answer? No.
 
 Lets go back to this chart for a second:
 
@@ -336,6 +336,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3ODcyODQ0MiwtNjAwMzczNTkxLC04OT
-Q1NjIxMDksLTE5MTY4ODU5MDddfQ==
+eyJoaXN0b3J5IjpbNDQ2MDczOTk3LC02MDAzNzM1OTEsLTg5ND
+U2MjEwOSwtMTkxNjg4NTkwN119
 -->
