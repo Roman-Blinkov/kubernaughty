@@ -278,8 +278,8 @@ boosting this to a large disk means that you're only delaying the inevitable
 > Updated to clarify - see https://github.com/jnoller/kubernaughty/issues/1
 
 Linux (and Windows) also has a 2 TiB disk partition limit on various IaaS
-providers due to **legacy MBR usage/VM images**, olders hypervisors, etc. If the
-host, the VM image, kernel, etc all support GPT (below) you can havbe >2tb OS
+providers due to **legacy MBR usage/VM images**, older hypervisors, etc. If the
+host, the VM image, kernel, etc all support GPT (below) you can have >2tb OS
 disks (which will still have hard quotas).
 
 > My personal experience does not cover GPT which overcomes the 2tb limitation
@@ -334,6 +334,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxNDIzODI0MCwtODk0NTYyMTA5LC0xOT
+eyJoaXN0b3J5IjpbLTYwMDM3MzU5MSwtODk0NTYyMTA5LC0xOT
 E2ODg1OTA3XX0=
 -->
