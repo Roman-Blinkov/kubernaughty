@@ -5,7 +5,7 @@ Contents:
  - [Kubernetes isn't a PaaS...](#paas)
  - [Voiding the Warranty](#void)
 	 - [Shaving yaks](#yak)
-	 - []()
+	 - [Command execution without SSH](#lol)
 
 
 <a name="intro"></a>
@@ -724,6 +724,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk1MjExNDY2LDE2NTAzMDkzMDMsMjE1Mj
-A2Nzc1XX0=
+eyJoaXN0b3J5IjpbMTkzNDg0MDgwOSw2OTUyMTE0NjYsMTY1MD
+MwOTMwMywyMTUyMDY3NzVdfQ==
 -->
