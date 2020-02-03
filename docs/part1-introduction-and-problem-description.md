@@ -263,7 +263,7 @@ For more reading on Azure / VM and storage quotas, see "[Azure VM storage perfor
 specific storage device, VM or subscription as they protect QoS for all
 customers.
 
-# Can I just increase my disk size to work around it before you keep talking
+# Can I just increase my disk size to work around it ?
 
 Short answer? No.
 
@@ -334,5 +334,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5NDU2MjEwOSwtMTkxNjg4NTkwN119
+eyJoaXN0b3J5IjpbNTg3MTQ4MjI1LC04OTQ1NjIxMDksLTE5MT
+Y4ODU5MDddfQ==
 -->
