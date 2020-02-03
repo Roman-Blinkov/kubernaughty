@@ -1,8 +1,9 @@
 # Kubernaughty 1: IO Saturation and analysis
 
-- [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
-- [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
-- [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
+ - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
+ - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
+ - [Part 2: Cluster Setup & Basic Monitoring](/docs/part2-basic-setup.md)
+ - [Part 3: What's in the box?! (voiding the warranty)](/docs/part3-whats-in-the-box)
 
 Contents:
 
@@ -339,5 +340,5 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjY3OTYzODUwXX0=
+eyJoaXN0b3J5IjpbLTE5MTY4ODU5MDddfQ==
 -->
