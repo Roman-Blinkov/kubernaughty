@@ -310,7 +310,7 @@ Most users when they encounter these failures simply over provision (spending
 a lot more money than they need to) - doubly true for users attempting to hyper-pack
 the workloads within kubernetes since they probably can not meet the 
 container count/node density requirements.
-Thisincludes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
+This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
 changes the *time until* they hit the issue especially with StatefulSet,
 periodic/batch workloads running densely (packing all nodes densely with
 application containers, not setting resource limits) - and during that time
@@ -339,6 +339,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzNTU3NTMxMSwtNjAwMzczNTkxLC04OT
-Q1NjIxMDksLTE5MTY4ODU5MDddfQ==
+eyJoaXN0b3J5IjpbLTU2OTkzODE2NywtMjM1NTc1MzExLC02MD
+AzNzM1OTEsLTg5NDU2MjEwOSwtMTkxNjg4NTkwN119
 -->
