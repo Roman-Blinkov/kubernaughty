@@ -188,7 +188,7 @@ info. So I automated it.
 
 In the https://github.com/jnoller/kubernaughty/tools/ directory, the script aksssh does what some of what you need:
 
-[![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
+![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
 
 **I recommend generating new/clean SSH keys for stuff like this - don't
 re-use existing ssh keys**:
@@ -727,6 +727,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MjIxOTY5Miw2OTUyMTE0NjYsMTY1MD
-MwOTMwMywyMTUyMDY3NzVdfQ==
+eyJoaXN0b3J5IjpbLTEzNTYxMTc1NTcsNjk1MjExNDY2LDE2NT
+AzMDkzMDMsMjE1MjA2Nzc1XX0=
 -->
