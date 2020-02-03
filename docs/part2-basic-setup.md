@@ -4,6 +4,7 @@
 Contents:
 
 * [Introduction](#intro)
+* [Basic cluster setup and configuration](
 * [Azure Insights setup](#insights)
 * [Idle IO? The plot thickens](#idleio)
 
@@ -14,6 +15,7 @@ This picks up from Part 1, this is part narration/notes and part journal vs
 part one. This follows the actual steps / back tracking needed to identify
 these failures.
 
+<a name="basic"></a>
 ## Basic cluster setup and configuration
 
 * Provider: AKS
@@ -256,5 +258,5 @@ section.
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE3NzUwNjMsNzQ0ODIyNThdfQ==
+eyJoaXN0b3J5IjpbMTQzNDgxODYyOCw3NDQ4MjI1OF19
 -->
