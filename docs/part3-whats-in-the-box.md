@@ -240,6 +240,7 @@ All it does is wrap the awesome plugin above and dynamically build a host map.
 
 [![asciicast](https://asciinema.org/a/295438.svg)](https://asciinema.org/a/295438)
 
+<a name="recap"></a>
 ## Just checking
 
 Lets quickly recap the state of the cluster from the 'black box' point of view,
@@ -731,6 +732,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg1ODI2Mzk3LDY5NTIxMTQ2NiwxNjUwMz
-A5MzAzLDIxNTIwNjc3NV19
+eyJoaXN0b3J5IjpbLTE3ODU2MDc5MTUsNjk1MjExNDY2LDE2NT
+AzMDkzMDMsMjE1MjA2Nzc1XX0=
 -->
