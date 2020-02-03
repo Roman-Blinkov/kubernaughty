@@ -13,6 +13,8 @@ There are many gotchas, mud pits and blind spots running distributed systems,
 and kubernetes is no different. Hopefully, this stuff helps you and your
 team.
 
+>**This is an ongoing project / labor of love. It is not complete by any means**
+
 ## Kubernaughty 1: IO saturation and throttling
 
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
@@ -22,5 +24,5 @@ team.
 
 Feel free to use the bug tracker to ask questions or edits.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNjAzNTEwMF19
+eyJoaXN0b3J5IjpbLTE4NTM3MDQ0MjddfQ==
 -->
