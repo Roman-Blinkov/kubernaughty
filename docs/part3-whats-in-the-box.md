@@ -56,7 +56,7 @@ application developers without **adding on all of the paas-like things you'll
 need (CI/CD, app packaging, etc)** its going to be painful and slow.
 
 There are no 'quick fixes' to changing the very nature of how you rationalize
-and operate your applications at a global scale. Stop trying.
+and operate your applications at a global scale.
 
 ## Voiding the Warranty
 
@@ -720,5 +720,5 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDE5ODU4NDIsMjE1MjA2Nzc1XX0=
+eyJoaXN0b3J5IjpbLTExNzk0MTQwMTcsMjE1MjA2Nzc1XX0=
 -->
