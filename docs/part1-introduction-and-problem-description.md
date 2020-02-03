@@ -308,7 +308,8 @@ is the IOPS performance, not the space.
 
 Most users when they encounter these failures simply over provision (spending 
 a lot more money than they need to) - doubly true for users attempting to hyper-pack
-the workloads within kubernetes since they probably can not meet the container count/node This
+the workloads within kubernetes since they probably can not meet the 
+container count/node This
 includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - this
 changes the *time until* they hit the issue especially with StatefulSet,
 periodic/batch workloads running densely (packing all nodes densely with
@@ -338,6 +339,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMDUwMDQ5LC02MDAzNzM1OTEsLTg5ND
-U2MjEwOSwtMTkxNjg4NTkwN119
+eyJoaXN0b3J5IjpbLTgzMDUzNTI0OSwtNjAwMzczNTkxLC04OT
+Q1NjIxMDksLTE5MTY4ODU5MDddfQ==
 -->
