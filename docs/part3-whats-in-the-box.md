@@ -186,7 +186,7 @@ give you a little tour of the node so YOLO.
 Per the instructions I linked you have to update some vmss, root around for some
 info. So I automated it.
 
-In the https://github.com/jnoller/kubernaughty/tools/ directory, the script aksssh does what some of what you need:
+In the [`tools/`][tools] directory, the script aksssh does what some of what you need:
 
 ![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
 
@@ -727,6 +727,6 @@ Uhhhh anyway. I've got root. Onto part 4.
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTYxMTc1NTcsNjk1MjExNDY2LDE2NT
+eyJoaXN0b3J5IjpbLTIwODAxODQ2ODksNjk1MjExNDY2LDE2NT
 AzMDkzMDMsMjE1MjA2Nzc1XX0=
 -->
