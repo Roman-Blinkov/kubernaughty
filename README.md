@@ -6,7 +6,10 @@ and reliability considerations.
 
 Initially this investigation started as customer-reported failures at the DNS, 
 networking and application levels, however through the analysis the actual causes
-for these failures we due to IO contention/mem
+for these failures we due to severe resource saturation & contention, IO throttling, 
+kernel panics, etc.
+
+
 
 
  - [Part 1: Introduction & Issue summary](/docs/part1-introduction-and-problem-description.md)
@@ -26,5 +29,5 @@ team.
 Currently, focused on in-depth diagnosis for IO / Resource contention.
 IO, resource contention notes, docs and tools.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc2MzM4MDUzXX0=
+eyJoaXN0b3J5IjpbMjI5MjU0MTE3XX0=
 -->
