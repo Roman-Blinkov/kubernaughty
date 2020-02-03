@@ -317,7 +317,7 @@ periodic/batch workloads running densely (packing all nodes densely with
 application containers, not setting resource limits) - and during that time
 you're paying for completely un-utilized disk and VM resources.
 
-Your likelihood of hitting this is directly related to the load / traffic your
+The likelihood of hitting this is directly related to the load / traffic your
 application (therefore the cluster) is under. The higher the load, the higher
 the likelihood.
 
@@ -340,6 +340,6 @@ considerations later.
 [twitter]: https://twitter.com/jessenoller
 [iopstsg]: https://github.com/Azure/AKS/issues/1373
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzkzMTEyODQsLTIzNTU3NTMxMSwtNj
+eyJoaXN0b3J5IjpbLTEzNDYyNzY3MDYsLTIzNTU3NTMxMSwtNj
 AwMzczNTkxLC04OTQ1NjIxMDksLTE5MTY4ODU5MDddfQ==
 -->
