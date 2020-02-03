@@ -9,6 +9,9 @@ networking and application levels, however through the analysis the actual cause
 for these failures we due to severe resource saturation & contention, IO throttling, 
 kernel panics, etc.
 
+There are many gotchas, mud pits and blind spots running distributed systems,
+and kubernetes is no different. Hopefully, this stuff helps you and your
+team.
 
 
 
@@ -18,16 +21,6 @@ kernel panics, etc.
  - [Part 4: That's how you fail a container runtime](/docs/part-4-how-you-kill-a-container-runtime.md)
 
 
-This is a collection of documentation, how-tos, tools and other information on
-debugging and identifying Kubernetes/container workload failures, performance
-and reliability considerations, and other `kubernaughties`.
-
-There are many gotchas, mud pits and blind spots running distributed systems,
-and kubernetes is no different. Hopefully, this stuff helps you and your
-team.
-
-Currently, focused on in-depth diagnosis for IO / Resource contention.
-IO, resource contention notes, docs and tools.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI5MjU0MTE3XX0=
+eyJoaXN0b3J5IjpbMTU2ODI3NjUyMl19
 -->
