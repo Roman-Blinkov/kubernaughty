@@ -71,7 +71,7 @@ Hmmmmmmm.... which disks are busy?
 
 ## Azure Insights: Making a custom chart
 
-Since I already know how this play ends (it's a tragedy) - I'll show you 
+Since I already know how this play ends (it's a tragedy) - I'll show you
 the chart you can build using Azure Insights (Metrics View) that tracks some
 of the metrics I will be going into more later:
 
@@ -266,7 +266,3 @@ section.
 [linuxio]: https://cromwell-intl.com/open-source/performance-tuning/disks.html
 [aqd]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance#queue-depth
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwNDkxNjg0LDEwMDE4MDQzMDIsMTI3Nj
-g2MDY4MSwyMjYxODQxNzEsNzQ0ODIyNThdfQ==
--->

@@ -1,16 +1,20 @@
 # Whats in the box?! (voiding the warranty)
 
 Contents:
- - [Introduction](#intro)
- - [Kubernetes isn't a PaaS...](#paas)
- - [Voiding the Warranty](#void)
-	 - [Shaving yaks](#yak)
-	 - [Command execution without SSH](#lol)
-	 - [Enabling SSH](#ssh)
-	 - [Recap](#recap)
 
+- [Introduction](#intro)
+- [Kubernetes isn't a PaaS...](#paas)
+- [Voiding the Warranty](#void)
+  - [Shaving yaks](#yak)
+  - [Command execution without SSH](#lol)
+  - [Enabling SSH](#ssh)
+  - [Recap](#recap)
+- [What's up with that memory utilization?](#memory)
+- [Where the logs at?](#logs)
+- [The OOMKiller is death](#oom)
 
 <a name="intro"></a>
+
 ## Introduction (Part 3)
 
 In parts 1 & 2 I walked though the problem summary and initial cluster
@@ -34,6 +38,7 @@ Kubernetes is a PaaS (platform as a service).
 On to the fun.
 
 <a name="paas"></a>
+
 ## Wait, Kubernetes isn't a PaaS...
 
 I lied. I'm not done with you yet. Let me drop some painful hard
@@ -158,13 +163,12 @@ What the above does is all the grunt work for you - it cracks open the resource
 group and scaleset, vmss instances etc and just iterates the list (sequentially)
 firing off the command.
 
-Look in the https://github.com/jnoller/kubernaughty/tools/ directory, there is
-a hacky `vmssrc` script you can drop on your $PATH. I'm old and I like bash.
+Look in the [`tools/`][tools] directory there's a hacky `vmssrc` script you can
+drop on your $PATH. I'm old and I like bash.
 
 Here's an example using the vmssrc command:
 
-[
-![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
+[![asciicast](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ.svg)](https://asciinema.org/a/95Su6QKv9uCJVfFv4wyxKHCCZ)
 
 We're still going to enable ssh - but keep that ^ in the back of your mind.
 
@@ -185,13 +189,10 @@ Technically, I haven't broken anything on the cluster yet, so I don't really
 need SSH - I just know I am going to need it, and want it and that I want to
 give you a little tour of the node so YOLO.
 
-Per the instructions I linked you have to update some vmss, root around for some
-info. So I automated it.
+In the [`tools/`][tools] directory, the script aksssh does what some of what
+you need:
 
-In the [`tools/`][tools] directory, the script aksssh does what some of what you need:
-
-[
-![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
+[![asciicast](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp.svg)](https://asciinema.org/a/nnWxY28G7Vqs5EaUJdj4vhtEp)
 
 **I recommend generating new/clean SSH keys for stuff like this - don't
 re-use existing ssh keys**:
@@ -201,30 +202,24 @@ ssh-keygen -t rsa -b 4096 -C "sup@kubernaughty.ded"
 ```
 
 As for running the ssh container along what the official docs tell you - you can
-do that and `docker exec` into it. It's crummy and you lose thins that might be
+do that and `docker exec` into it. It's crummy and you lose things that might be
 handy filtering everything through the exec/SSH jump.
 
-I spent a or two yakshaving distributed/balanced SSH bastions into the kube -
-I'm a big fan of old school, ssh into the cluster nodes and debug. Normally, I
-would just flip on a [Cluster SSH tool][csshtools] but after trying to get SSH
-exposed to the WAN.. decided to skip and just use
-[`kubectl-plugin-ssh-jumps`][kubectl-plugin-ssh-jump]
+Normally, I would just flip on a [Cluster SSH tool][csshtools] but after trying
+to get SSH exposed to the WAN.. I decided that was a terrible idea, and moved
+to the excellent: [`kubectl-plugin-ssh-jumps`][kubectl-plugin-ssh-jump]
 
 (You can also use https://github.com/kvaps/kubectl-node-shell)
-
-Not today yakshaving satan!
-
-![Don't worry](https://media0.giphy.com/media/bqalUGFYfyHzW/giphy.webp?cid=5a38a5a295fa9056ad795e4d096c7ebc10770010ad01b518&rid=giphy.webp "lol")
 
 This kubectl ssh plugin is pretty handy - it does the needed ssh container/agent
 forwarding/transparent jump that I want for now:
 
 [![asciicast](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC.svg)](https://asciinema.org/a/Q5eLhmj4HAI3HOHJt60FU7yrC)
 
-Cool, I has root now.
+Now we have root.
 
 **UPDATE**: I spend some time yak shaving because I really hate typing things
-so I made a wrapper: `tools/aksportal` - usage is pretty simple:
+so I made a wrapper: [`tools/aksportal`][tools] - usage is pretty simple:
 
 ```
 jnoller@doge kubernaughty (master) $ -> (⎈ |kubernaughty:default)$ tools/aksportal 0
@@ -236,14 +231,15 @@ Built AKS host map:
 0 - aks-agentpool-57418505-vmss000000
 ```
 
-All it does is wrap the awesome plugin above and dynamically build a host map.
+All it does is wrap the `kubectl-plugin-ssh-jumps` plugin above and dynamically
+build a host map so you can run `aksportal 0` to jump into node 0.
 
 [![asciicast](https://asciinema.org/a/295438.svg)](https://asciinema.org/a/295438)
 
 <a name="recap"></a>
-## Just checking
+## Quick Recap
 
-Lets quickly recap the state of the cluster from the 'black box' point of view,
+Lets recap the state of the cluster from the 'black box' point of view,
 remember I haven't logged into kubernetes proper yet:
 
 Nodes (and uname output):
@@ -385,14 +381,12 @@ tmpfs           1.4G     0  1.4G   0% /run/user/1000
 ```
 
 * /dev/sdb - that's the virtual machine's ephemeral temp disk
-* /dev/sda - that's your OS devices
+* /dev/sda - that's your OS device
 
 Let's check resources - for these I'll use [`iotop` and `htop`][linuxiotools]
 and since they look wicked cool, I recorded it:
 
 [![asciicast](https://asciinema.org/a/QqP3azBOpgYgvkf8hPD8Vw4x1.svg)](https://asciinema.org/a/QqP3azBOpgYgvkf8hPD8Vw4x1)
-
-`iotop` and `htop` are really fantastic - stop using plain top!
 
 Notes:
 
@@ -436,7 +430,8 @@ meaning that the currently installed daemons / processes for managing the
 nodes is consuming ~4gb of worker node RAM in idle
 state (Container insights, Azure CNI, http-application routing enabled).
 
-## Memory, I knew him, Horatio
+<a name="ram"></a>
+## Whats up with that utilization?
 
 Just a real quick donut in the parking lot before moving on (ADHD rules) - there
 is a lot of confusion around memory reservations / AKS worker nodes, so here it
@@ -491,6 +486,7 @@ So, about a 12-13% buffer from the 13gb we've got - about 1.7gb so we're at:
 which means **[you need to adjust your pod limits][k8sl]** lower than you
 thought.
 
+<a name="logs"></a>
 # Where the logs at?
 
 Mostly, I wanted SSH access to be able to pour through the logs on each node.
@@ -583,7 +579,8 @@ Jan 23 20:47:08 aks-agentpool-57418505-vmss000000 kubelet[4382]: I0123 20:47:08.
 So the docker / other interesting logs are in journalctl `service.name`. We can
 follow along with those.
 
-# If you've got the OOMKiller on you've got 99 problems you don't know.
+<a name="oom"></a>
+# The OOMKiller is death
 
 Linux OOMKiller settings:
 
@@ -601,7 +598,7 @@ kernel.panic_on_unrecovered_nmi = 0
 kernel.panic_on_warn = 0
 ```
 
-> I may talk more about this later, (ed note- looking below, this was a lie)
+> I may rant more about this later, (ed note- looking below, this was a lie)
   but suffice it to say my recommendation is that you _always_ panic on oom -
   the Linux OOMKiller in distributed systems - OOMs should always result in node
   death. I'm still mad no one believes me.
@@ -635,7 +632,10 @@ hosts. These hosts will sooner or later hit memory contention - it's not a
 matter of if - its a matter of when. Dense container packing just makes it
 worse.
 
-The Linux OOMKiller was designed for _a_ host - it was meant to allow a host
+Java and other runtime-packing languages are also notorious for having
+bugs leading to cgroups violations/memory gobbling, etc.
+
+The Linux OOMKiller was designed for _a_ host - it was meant to allow that host
 to have a chance to free up resources by any means nessecary - it's arbitrary
 and will kill things you rely on without realizing it.
 
@@ -653,17 +653,23 @@ to:
 Or you want them to _kill themselves_. Any node - any host in an unknown, or
 worse unknowable state is the creeping death for distributed systems, this is
 part of the reason we're taught to treat these things like cattle and not
-pets: Kill them often.
+pets and the entire gist behind the cloud elasticity, if a VM fails, you take it
+out of rotation, reboot, diagnose, delete, take learning and deploy to fleet,
+replacing nodes if required to hit **the same state**.
 
-The OOMKiller is a bit like a context-free nuke wielding drunk toddler busting
+The OOMKiller is like a context-free nuke wielding and drunk toddler busting
 into your really intense operations center and going to town. It will kill
-anything it has to in order to protect the kernel. When it does this, sometimes
-lower lying processes like, a docker one may be killed. Or in memory SDN
-daemons. In kubernetes, it will evict your entire workload, and possibly the
-kubelet in failure modes. All of these things leave the node in an unknown,
-unclean state - out of date iptables rules, missing containers, missing logs,
-and so on. **Performing a hard reboot** instead returns the node to a known,
-clean state in sync with the rest of the cluster.
+anything it has to in order to protect the kernel.
+
+When it does this, sometimes lower lying processes like docker, ntp, etc may be
+killed. Or in memory SDN daemons. In kubernetes, it will evict your entire
+workload (pods will be killed), and possibly the kubelet will be killed in
+failure modes. If it ain't the kernel, it's gotta go.
+
+All of these things leave the node in an unknown, unclean state - out of date
+iptables rules, missing containers, missing logs, and so on. **Performing a
+hard reboot** instead returns the node to a known, clean state in sync with the
+rest of the cluster (storage systems are supppper picky).
 
 When the OOMkiller evicts your workload containers / processes - what do you
 think happens to your PVCs? Do your java daemons obey linux signals correctly?
@@ -672,40 +678,46 @@ Unknown state at scale is the death of services and systems, and having somethin
 killing random processes and cgroups (even if you nice them nicely) is the
 antithesis of being able to rationalize and observe a system. Just reboot.
 
-LLook, since apparently this and
-understanding system behavior makes me a crazy person, look at the [fallacies 
+Look, apparently this opinion makes me a crazy person, but look at the [fallacies
 of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
+I'll invert it to be the **LAWS** of distributed computing:
 
-
-for crying out loud. I'll invert it to be the **LAWS** of distributed computing:
-
-* **The network is unrelaible**. In fact, software defined networking makes it even
+- **The network is unreliable**. In fact, software defined networking makes it even
   more fun because CPU and memory/IO starvation makes it unreliable. Not to
   mention everyone thinks they need hyper complex networking setups with bespoke
   jumps, hops and routes that make it even worse. Then you slap some mtls and
   a service mesh on that bad boy and make it even worse. So you buy bigger nics
   and VMs until eventually you're behind a 7-11 smoking dark fiber with AT&T.
-* **Latency is never zero**: Just to prove this, later I'm going to give you a
+
+- **Latency is never zero**: Just to prove this, later I'm going to give you a
   container that will absolutely demolish your system and workload latency. Why?
   You can not change physics. Trust me, I've tried.
-* **Bandwidth is expensive and finite**: Have you looked at your bandwidth bills?
+
+- **Bandwidth is expensive and finite**: Have you looked at your bandwidth bills?
   I mean, really looked at them? Not only is the network unreliable, its bloody
   expensive, always limited, and also unreliable. Look at bandwidth/burst quotas
   for all cloud vendor network and VM devices, you don't have what you think you
   have.
-* **The network is never secure**: Just go listen/watch awesome infosec people
-  like [Ian Coldwater](https://twitter.com/IanColdwater). Follow whomever they recommend.
-* **Topology doesn't change**: LOL 'infrastructure as code' - good one. Toplogy
-  always changes, always partitions, and then Ted in IT is probably using those
-  expensive giant routers you have to mine bitcoin probably.
-* **There** are hundreds of administrators: Comeon yall. it's cloud, you know it
+
+- **The network is never secure**: Just go listen/watch awesome infosec people
+  like [Ian Coldwater](https://twitter.com/IanColdwater). Follow whomever they
+  recommend, or any of the old CoreOS folks, or Jess Frazelle.
+
+- **Topology doesn't change**: HAHAHAHAhaAHahAhhaaaaa 'infrastructure as code'
+  - good one. Toplogy always changes, always partitions, and then Ted in IT is
+  probably using those expensive giant routers you have to mine bitcoin
+  probably.
+
+- **There are hundreds of administrators**: It's cloud, you know it
   and I know it. Kubernetes, given it mutates IaaS on behalf of a declared
   application need is one of those administrators, as well as all of those
   declared needs.
-* **Transport cost is zero**: See bandwidth - but also, this means **failover** is
+
+- **Transport cost is zero**: See bandwidth - but also, this means **failover** is
   expensive. Moving disks, creating new VMs, moving the workload from A to B -
-  people think once again, you can break physics.
-* **The network is chaos**: Not only is it not homogenous - it might as well be
+  people think once again you can break physics.
+
+- **The network is chaos**: Not only is it not homogenous - it might as well be
   your single most important failure point in the entire system. Go ahead, ask
   what we did before we could all poorly re-implment RAFT to protect against
   bizarre networking issues.
@@ -715,23 +727,20 @@ Must-read for the OOMKiller:
 * https://lwn.net/Articles/317814/
 * https://lwn.net/Articles/761118/
 
-Uhhhh anyway. I've got root. Onto part 4.
+Anyway. I've got root. Onto part 4.
 
-[Continue on to Part 4: Lets kill a Kubernetes]()
+[Part 4: That's how you fail a container runtime?][part4]
 
+[part4]: /docs/part-4-how-you-kill-a-container-runtime.md
 
 [csshtools]: https://medium.com/@joantolos/cluster-ssh-tool-using-macos-a66930eeada6
 [azcli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [runcmd]: https://docs.microsoft.com/cli/azure/vmss/run-command?view=azure-cli-latest
 [sshwrong]: https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/
-[support]: https://docs.microsoft.com/en-us/azure/aks/support-policies#aks-support-coverage-for-worker-nodes
+[support]: https://docs.microsoft.com/azure/aks/support-policies#aks-support-coverage-for-worker-nodes
 [kernel]: https://launchpad.net/ubuntu/+source/linux-azure
-[kured]: https://docs.microsoft.com/en-us/azure/aks/node-updates-kured
+[kured]: https://docs.microsoft.com/azure/aks/node-updates-kured
 [kubectl-plugin-ssh-jump]: https://github.com/yokawasa/kubectl-plugin-ssh-jump
 [linuxiotools]: https://www.opsdash.com/blog/disk-monitoring-linux.html
 [k8sl]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTg0MzA2ODcsNjk1MjExNDY2LDE2NT
-AzMDkzMDMsMjE1MjA2Nzc1XX0=
--->

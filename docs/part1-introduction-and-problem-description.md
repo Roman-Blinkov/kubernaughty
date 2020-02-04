@@ -1,3 +1,7 @@
+---
+typora-root-url: ../images
+---
+
 # Kubernaughty 1: IO Saturation and analysis
 
 >**This is an ongoing project / labor of love. It is not complete by any means**
@@ -306,12 +310,12 @@ under load utilizing a 2 TiB OS disk will still be throttled.
 Additionally: You'd be paying full price for a 2 TiB OS disk - when all you need
 is the IOPS performance, not the space.
 
-Most users when they encounter these failures simply over provision (spending 
+Most users when they encounter these failures simply over provision (spending
 a lot more money than they need to) - doubly true for users attempting to hyper-pack
-the workloads within kubernetes since they probably can not meet the 
+the workloads within kubernetes since they probably can not meet the
 container count/node density requirements.
 
-This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc - 
+This includes pre-allocating that 2 TiB disk, increasing the VM SKU size, etc -
 this only changes the *time until* they hit the issue especially with StatefulSet,
 periodic/batch workloads running densely (packing all nodes densely with
 application containers, not setting resource limits) - and during that time
@@ -334,7 +338,11 @@ point of failure.
 I will go into more details and pros/cons on mitigation & cluster design
 considerations later.
 
-[Continue on to Part 2: Cluster setup and basic monitoring](/docs/part2-basic-setup.md)
+
+[Part 2: Cluster Setup & Basic Monitoring][part2]
+
+
+[part2]: /docs/part2-basic-setup.md
 
 [aks]: https://docs.microsoft.com/en-us/azure/aks/
 [twitter]: https://twitter.com/jessenoller

@@ -1,4 +1,19 @@
+
 # Thats how you kill a container runtime?
+
+Contents:
+
+- [Introduction](#intro)
+- [The prometheus-operator chart?](#prop)
+- [Analyzing the failed `helm install`](#fail)
+  - [Install IOVisor/bcc](#bcc)
+  - [Kubectl is made of container failures](#soylent)
+  - [What does the pod say?](#podlogs)
+- [Summary](#summary)
+
+<a name="intro"></a>
+
+# Introduction
 
 Previously I outlined some of my short command aliases - but - just to be nice
 I'll run through getting the credentials, and logging into the cluster:
@@ -29,6 +44,10 @@ Right now, we have a mostly idle cluster, we have SSH, we have some metrics.
 
 Lets install something - lets say... the prometheus-operator helm chart?
 
+<a name="prop"></a>
+
+## The prometheus-operator chart?
+
 Why? How dare you question Oz! Seriously, good question. In part one I described
 the issue (primary OS disk throttling due to quota) and the symptoms (node
 failure). Obviously triggering the issue requires IO.
@@ -48,8 +67,7 @@ In this case, the [prometheus operator][pop] serves a dual purpose:
 4. The operator includes a whole bunch of critical metrics and reports for
    Kubernetes operators, we're going to want that.
 
-
-## Enable the webhook
+### Enable the webhook
 
 Depending on if you have Active Directory integration enabled, and what
 version of kubernetes your AKS cluster is running, the authentication webhook
@@ -63,7 +81,7 @@ az vmss run-command invoke -g "${cluster_resource_group}" \
   --command-id RunShellScript -o json --scripts "${command}" | jq -r '.value[].message'
 ```
 
-But - I automated that - look in **tools/enable-webhook**, example:
+But - I automated that - look in [`tools/enable-webhook`][tools], example:
 
 ```
 jnoller@doge kubernaughty (master) $ -> (⎈ |kubernaughty:default)$ tools/enable-webhook Kubernaughty Kubernaughty
@@ -129,11 +147,13 @@ Yay! Everything just worked!
 
 > Narrator: It in fact, had not worked
 
-So we have to remember - I'm cheating. I knew that the command above would
-cause the **container runtime** and Kubelets on the node to begin failing. This
-is of course due to the IOPS throttling on the worker nodes.
+I'm cheating. I knew that the command above would cause the **container
+runtime** and kubelets on the node to begin failing. This is of course due to
+the IOPS throttling on the worker nodes, or sunspots.
 
-## Analyzing the failure
+<a name="fail"></a>
+
+## Analyzing the failed `helm install`
 
 You did not see any errors above simply due to the fact that Kubernetes and Docker
 did their job. They failed to schedule and run, so they got restarted. Except
@@ -141,7 +161,7 @@ did their job. They failed to schedule and run, so they got restarted. Except
 
 So, before we go further, let's analyze this a little. I have SSH for a reason.
 
-Here is the failure in 1080p glory:
+Here is the failure in 1080p glory (first screen recording, sad face):
 
 [![CRFAIL](http://img.youtube.com/vi/eFgo9OjQeMo/0.jpg)](https://www.youtube.com/watch?v=eFgo9OjQeMo "Woops")
 
@@ -244,6 +264,8 @@ root@aks-agentpool-57418505-vmss000000:/var/log#
 root@aks-agentpool-57418505-vmss000000:/var/log# less pods/kube-system_kube-proxy-76mqg_92517749-5101-465e-b7f3-adb5c03076cd/kube-proxy/0.log
 ```
 
+<a name="bcc"></a>
+
 ### Install IOVisor/bcc
 
 ```
@@ -258,8 +280,7 @@ Building dependency tree
 root@aks-agentpool-57418505-vmss000000:~# export PATH=$PATH:/usr/share/bcc/tools
 ```
 
-
-In addition to watching the logs, I was also using the `ext4slower` too from the
+In addition to watching the logs, I was also using the `ext4slower` from the
 [IOVisor][bcc] project. This gives us a handy list of processes making IO calls
 in my case, I want anything greated than 1ms of IO latency. This only shows calls
 that exceed the 1ms threshold.
@@ -381,6 +402,7 @@ TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
 23:31:02 kubectl        13456  S 0       0           9.76 938884487
 ```
 
+<a name="soylent"></a>
 ### Kubectl is made of container failures
 
 Oh - before I forget, if you run `ext4slower` after you have some workload
@@ -403,7 +425,7 @@ IO all spike. This in turn triggers the Azure quotas on the OS disk for each
 worker injecting possibly hundreds of millisecond of disk latency leading the
 processes and pods to fail.
 
-Remember the logs? *flashbackckckckckck*
+Remember the logs?
 
 ```
 kuberuntime_manager.go:404] No sandbox for pod "prop-prometheus-node-exporter-q7fvn_default(8861c2f4-e635-43d3-a6af-f826801ed969)" can be found. Need to start a new one
@@ -417,20 +439,19 @@ Jan 30 23:28:17 aks-agentpool-57418505-vmss000000 dockerd[3349]: time="2020-01-3
 
 Why do you need a new one bro?
 
-### What does the pod say? (LOL MEME)
+<a name="podlogs"></a>
+
+### What does the pod say?
 
 Well - here's the rub. We're dealing with the logs of a container - this means
 that the perspective is inverted. What do I mean? The processes and kernel
 within that container act and behaver as if they are normal processes reading
-off the filesystem. This means you won't see a ton of IOWait or other things in
-many cases, but you will get a lot of 'unable to read', 'file does not exist' -
-this is because the latency in the underlying VM is high enough the overlayfs
-calls to read the file are timing out.
+off the filesystem.
 
-> Maybe for giggles I'll show you how to deal with NFS/CIFS and software issues
-  from open() / close() and multiple closes() and open() after close() (David,
-  you burned this into my skull ty) and... Bob and Alice loved a file
-  system call very much...
+This means you won't see a ton of IOWait or other things in many cases, but you
+will get a lot of 'unable to read', 'file does not exist' - this is because
+the latency in the underlying VM is high enough the overlayfs calls to read the
+file are timing out.
 
 As we see here:
 
@@ -447,10 +468,12 @@ Error from server (BadRequest): previous terminated container "prometheus-config
 ```
 
 There you have it - from the view of the daemon running within the container,
-it could not fstat() the file (running eBPF in here would be nice, maybe I will
-do that).
+it could not fstat() the file (running eBPF inside the container here would be
+nice, maybe I will do that).
 
-### Monitoring!
+<a name="summary"></a>
+
+## Summary and `Disk Busy/Queue is a lie`
 
 Let's look at the metrics for that window of time - notice anything weird? Like:
 
@@ -467,20 +490,19 @@ looking at are presented at the *host* level (the throttle is triggering on
 the OS disk - /dev/sda), and don't really represent the metric you need which is
 **saturation**.
 
-## Next up
-
-
 The next part will walk though:
 
 1. Connecting the dots (with BPF, monitoring and love)
 2. Re-creating total node failure
-3. Maybe a container running BPF tools so we can see what the container in the container in the container sees.
+3. Maybe a container running BPF tools so we can see what the container in the
+   container in the container sees.
 
-Also, I will be adding more screencasts now that I spent money to make them not
-suck.
+[Part 5: tbd][part5]
 
+[part5]: /README.md
 
 [pop]: https://github.com/coreos/prometheus-operator
 [pophelm]: https://github.com/helm/charts/tree/master/stable/prometheus-operator
 [debugp]: https://github.com/slack/k8s-debug-pod
 [bcc]: https://github.com/iovisor/bcc
+[tools]: https://github.com/jnoller/kubernaughty/tree/master/tools
