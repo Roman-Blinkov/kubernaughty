@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#
+# enables the ssh stuff for an aks cluster pew pew pew
+#
+
+resource_group=$1
+cluster_name=$2
+shift 2
+command="sed -i 's/--authorization-mode=Webhook/--authorization-mode=Webhook --authentication-token-webhook=true/g' /etc/default/kubelet"
+
+tools/vmssrc ${resource_group} ${cluster_name} ${command}
+
+echo "You keep both pieces!"

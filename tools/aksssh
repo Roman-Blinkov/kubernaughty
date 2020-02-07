@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+#
+# enables the ssh stuff for an aks cluster pew pew pew
+#
+
+resource_group=$1
+cluster_name=$2
+public_key=$3 # ~/.ssh/id_rsa.pub
+
+export CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group ${resource_group} --name ${cluster_name} --query nodeResourceGroup -o tsv)
+export SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+echo "Enabling SSH on ${cluster_name}, cluster resource group: ${CLUSTER_RESOURCE_GROUP}"
+az vmss extension set  \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --vmss-name $SCALE_SET_NAME \
+    --name VMAccessForLinux \
+    --publisher Microsoft.OSTCExtensions \
+    --version 1.4 \
+    --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat $public_key)\"}"
+
+echo "Updating VMSS images on ${cluster_name}, cluster resource group: ${CLUSTER_RESOURCE_GROUP}"
+az vmss update-instances --instance-ids '*' \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --name $SCALE_SET_NAME
+
+echo "You should deploy an ssh jump container meow."

@@ -8,7 +8,7 @@ TARGETNODE=$1
 CLEANUP=${JUMPCLEAN:-}
 NODEUSER=${NODEUSER:-"azureuser"}
 PRIVKEY=${PRIVKEY:-"kubernaughty.key"}
-PUBKEY=${PRIVKEY:-"kubernaughty.pub"}
+PUBKEY=${PUBKEY:-"kubernaughty.pub"}
 
 # I'm relying on you setting up the ssh-jump plugin and cached your keys
 if [ ! -f "$HOME/.kube/kubectlssh/options" ]; then
@@ -42,4 +42,4 @@ fi
 
 
 kubectl ssh-jump ${nodemap[$TARGETNODE]} -u ${NODEUSER} \
-    -i ${PRIVKEY} -p {PUBKEY} #--cleanup-jump
+    -i ${PRIVKEY} -p ${PUBKEY} #--cleanup-jump

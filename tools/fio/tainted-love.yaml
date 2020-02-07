@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: fio
+spec:
+  # A deployment's specification really only
+  # has a few useful options
+  # 1. How many copies of each pod do we want?
+  replicas: 5
+  # 2. How do want to update the pods?
+  strategy:
+    type: Recreate
+  # 3. Which pods are managed by this deployment?
+  selector:
+    # This must match the labels we set on the pod!
+    matchLabels:
+      deploy: fio-burn
+  # This template field is a regular pod configuration
+  # nested inside the deployment spec
+  template:
+    metadata:
+      # Set labels on the pod.
+      # This is used in the deployment selector.
+      labels:
+        deploy: fio-burn
+    spec:
+      containers:
+      - name: fio-container
+        image: jessenoller/io
