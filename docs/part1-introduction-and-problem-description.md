@@ -1,6 +1,3 @@
----
-typora-root-url: ../images
----
 
 # Kubernaughty 1: IO Saturation and analysis
 
