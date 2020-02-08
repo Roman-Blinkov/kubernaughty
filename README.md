@@ -4,18 +4,32 @@ This is a collection of documentation, how-tos, tools and other information on
 debugging and identifying Kubernetes/container workload failures, performance
 and reliability considerations.
 
-Initially this investigation started as customer-reported failures at the DNS,
+Initially this investigation started as user-reported failures at the DNS,
 networking and application levels, however through the analysis the actual causes
-for these failures we due to severe resource saturation & contention, IO throttling,
-kernel panics, etc.
+for these failures we due to severe resource saturation & contention, IO
+throttling, kernel panics, etc. For an overview, see [Part 1: Summary][part1].
+
+Through the investigation, I've discovered a lack of operational / systems
+knowledge, tracking and general awareness of the worker nodes / linux hosts
+that comprise kubernetes clusters (including filesystem incompatibility).
 
 There are many gotchas, mud pits and blind spots running distributed systems,
-and kubernetes is no different. Hopefully, this stuff helps you and your
-team.
+and kubernetes is no different. My goal with this is to step through the past 20
+years of my career (eg, showing everyone my mistakes and learnings from the
+past).
+
+Hopefully, this stuff helps you and your team.
 
 >**This is an ongoing project / labor of love. It is not complete by any means**
 
-## Kubernaughty 1: IO saturation and throttling
+## Roadmap
+
+- [the rough project roadmap is here](https://github.com/jnoller/kubernaughty/projects/1)
+- Issues, comments and suggestions can be filed in the [tracker](https://github.com/jnoller/kubernaughty/issues)
+
+## Contents:
+
+### Kubernaughty 1: IO saturation and throttling
 
 [Part 1: Introduction & Issue summary][part1]
 [Part 2: Cluster Setup & Basic Monitoring][part2]
@@ -26,5 +40,3 @@ team.
 [part2]: /docs/part2-basic-setup.md
 [part3]: /docs/part3-whats-in-the-box
 [part4]: /docs/part-4-how-you-kill-a-container-runtime.md
-
-Feel free to use the bug tracker to ask questions or edits.

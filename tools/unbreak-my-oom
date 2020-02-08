@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+./vmssrc
+vm.panic_on_oom=1
+kernel.panic=5
+
+if [ ! -f "/oom.lock" ]; then
+    sysctl vm.panic_on_oom=1
+    sysctl kernel.panic=10
+    echo "vm.panic_on_oom=1" >> /etc/sysctl.conf
+    echo "kernel.panic=10" >> /etc/sysctl.conf
+    echo "oomkilleroff" >> /oom.lock
+fi

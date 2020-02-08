@@ -269,15 +269,10 @@ root@aks-agentpool-57418505-vmss000000:/var/log# less pods/kube-system_kube-prox
 ### Install IOVisor/bcc
 
 ```
-root@aks-agentpool-57418505-vmss000000:~# apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD
-Executing: /tmp/tmp.Nn8TzI1cqW/gpg.1.sh --keyserver
-....
-Fetched 3,616 B in 0s (5,873 B/s)
-Reading package lists... Done
-root@aks-agentpool-57418505-vmss000000:~# sudo apt-get install bcc-tools libbcc-examples linux-headers-$(uname -r)
-Reading package lists... Done
-Building dependency tree
-root@aks-agentpool-57418505-vmss000000:~# export PATH=$PATH:/usr/share/bcc/tools
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD
+echo "deb https://repo.iovisor.org/apt/$(lsb_release -cs) $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/iovisor.list
+sudo apt-get update
+sudo apt-get install bcc-tools libbcc-examples linux-headers-$(uname -r)
 ```
 
 In addition to watching the logs, I was also using the `ext4slower` from the
