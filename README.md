@@ -29,12 +29,19 @@ Hopefully, this stuff helps you and your team.
 
 ## Contents:
 
+### Screencasts 
+
+* [Demonstration of `helm install istio` trigging terminal IO latency](https://www.youtube.com/watch?v=Uk_MtHLvLcA)
+* [`helm install istio` trigging terminal IO latency Part 2](https://www.youtube.com/watch?v=kueX1HZogQI) 
+
 ### Kubernaughty 1: IO saturation and throttling
 
-[Part 1: Introduction & Issue summary][part1]
-[Part 2: Cluster Setup & Basic Monitoring][part2]
-[Part 3: What's in the box?! (voiding the warranty)][part3]
-[Part 4: That's how you fail a container runtime?][part4]
+* [Part 1: Introduction & Issue summary][part1]
+* [Part 2: Cluster Setup & Basic Monitoring][part2]
+* [Part 3: What's in the box?! (voiding the warranty)][part3]
+* [Part 4: That's how you fail a container runtime?][part4]
+
+
 
 [part1]: /docs/part1-introduction-and-problem-description.md
 [part2]: /docs/part2-basic-setup.md
