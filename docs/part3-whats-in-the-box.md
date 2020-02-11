@@ -662,9 +662,22 @@ into your really intense operations center and going to town. It will kill
 anything it has to in order to protect the kernel.
 
 When it does this, sometimes lower lying processes like docker, ntp, etc may be
-killed. Or in memory SDN daemons. In kubernetes, it will evict your entire
-workload (pods will be killed), and possibly the kubelet will be killed in
-failure modes. If it ain't the kernel, it's gotta go.
+killed. Or in memory SDN daemons. In kubernetes, it will **forcefully kill**
+your entire workload (pods will be executed), and possibly the kubelet will be
+killed in failure modes. If it ain't the kernel, it's gotta go.
+
+> [Bryan Boreham](https://twitter.com/bboreham/status/1227326642634346504?s=20)
+  made a good point on my language "understating" the issue, so I've fixed that
+  and added these callouts.
+
+> The OOMKiller will **kill** any and all processes on the host to preserve the
+  stability of the kernel. This is not a graceful eviction, this is not work
+  rescheduling, the OOMKiller does not coordinate with any other host.
+  This is a KILL - this means that anything writing to disk, etc is potentially
+  at risk, and unless you know for 100% certainty that every process on the
+  node / host is idempotent and reboot-tolerant, what happens when instead of
+  being restarted, it's force-killed over and over injecting random state into
+  the node / application.
 
 All of these things leave the node in an unknown, unclean state - out of date
 iptables rules, missing containers, missing logs, and so on. **Performing a
