@@ -28,10 +28,3 @@ spec:
       - name: fio-container
         image: jessenoller/io
       resources:
-    # Picked at random
-    requests:
-      memory: "16Mi"
-      cpu: "100m"
-    limits:
-      memory: "32Mi"
-      cpu: "200m"
