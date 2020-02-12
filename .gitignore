@@ -39,3 +39,5 @@ Thumbs.db
 *.key
 *.pub
 
+.vscode/
+dump/
