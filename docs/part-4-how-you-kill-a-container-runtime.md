@@ -161,9 +161,10 @@ did their job. They failed to schedule and run, so they got restarted. Except
 
 So, before we go further, let's analyze this a little. I have SSH for a reason.
 
-Here is the failure in 1080p glory (first screen recording, sad face):
+Screencast of the failure:
 
-[![CRFAIL](http://img.youtube.com/vi/eFgo9OjQeMo/0.jpg)](https://www.youtube.com/watch?v=eFgo9OjQeMo "Woops")
+[![CRFAIL](http://img.youtube.com/vi/Uk_MtHLvLcA/0.jpg)](https://www.youtube.com/watch?v=Uk_MtHLvLcA)
+
 
 First, let's look at the first hint that something went sideways - here's a
 snippet from the Kubelet log:
