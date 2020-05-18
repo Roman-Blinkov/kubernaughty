@@ -45,5 +45,5 @@ Hopefully, this stuff helps you and your team.
 
 [part1]: /docs/part1-introduction-and-problem-description.md
 [part2]: /docs/part2-basic-setup.md
-[part3]: /docs/part3-whats-in-the-box
+[part3]: /docs/part3-whats-in-the-box.md
 [part4]: /docs/part-4-how-you-kill-a-container-runtime.md
